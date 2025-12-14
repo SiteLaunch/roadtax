@@ -3,50 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renew Roadtax & Insurans • Premium</title>
+<title>Renew Roadtax & Insurans • Online Premium</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --primary:#020617;
-  --accent:#facc15;
   --card:#0b122b;
+  --accent:#facc15;
   --text:#f5f5f5;
-  --muted:#bbb;
+  --muted:#94a3b8;
   --green:#25D366;
-  --radius:12px;
+  --radius:14px;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:Inter,Arial,sans-serif;
   background:var(--primary);
   color:var(--text);
-  line-height:1.5;
+  line-height:1.55;
 }
-section{padding:40px 15px;}
-h2{text-align:center;color:var(--accent);margin-bottom:20px;}
+a{text-decoration:none;color:inherit}
+section{padding:38px 16px}
+.container{max-width:1080px;margin:0 auto}
+
+/* HERO */
+.hero{
+  min-height:78vh;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(180deg,rgba(2,6,23,.93),rgba(2,6,23,.98)),
+    url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c4?auto=format&fit=crop&w=1400&q=80")
+    center/cover no-repeat;
+}
+.hero-inner{max-width:680px}
+.hero h1{
+  font-size:36px;
+  font-weight:800;
+  color:var(--accent);
+  line-height:1.15;
+}
+.hero p{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:16px;
+}
+.hero ul{
+  margin-top:14px;
+  list-style:none;
+}
+.hero ul li{
+  font-size:14px;
+  margin-bottom:6px;
+}
+.hero-cta{
+  margin-top:22px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#facc15,#f59e0b);
+  color:#000;
+  padding:14px 24px;
+  border-radius:999px;
+  font-weight:900;
+}
+.btn-secondary{
+  border:2px solid var(--accent);
+  padding:12px 22px;
+  border-radius:999px;
+  font-weight:800;
+}
+
+/* SECTION */
+.section-title{
+  text-align:center;
+  margin-bottom:18px;
+}
+.section-title h2{
+  font-size:24px;
+  color:var(--accent);
+}
+.section-title p{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:4px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+}
+.card{
+  background:var(--card);
+  padding:18px;
+  border-radius:var(--radius);
+}
+.card h3{
+  color:var(--accent);
+  margin-bottom:6px;
+  font-size:16px;
+}
+.card p{font-size:14px;color:var(--muted)}
+
+/* FORM */
+.wrap{max-width:500px;margin:0 auto}
 label{
   display:block;
-  margin:12px 0 6px;
+  margin:10px 0 4px;
   font-weight:700;
   color:var(--accent);
   text-align:center;
+  font-size:14px;
 }
-.select-wrap{position:relative;}
+.select-wrap{position:relative}
 .select-wrap::after{
   content:"▼";
   position:absolute;
-  right:16px;
+  right:14px;
   top:50%;
   transform:translateY(-50%);
   color:var(--accent);
 }
 select,input{
   width:100%;
-  height:50px;
-  padding:0 16px;
-  border-radius:var(--radius);
+  height:48px;
+  padding:0 14px;
+  border-radius:12px;
   border:2px solid rgba(250,204,21,.25);
   background:var(--primary);
   color:var(--accent);
@@ -55,11 +143,11 @@ select,input{
   appearance:none;
 }
 button{
-  margin-top:25px;
+  margin-top:16px;
   width:100%;
-  padding:15px;
+  padding:14px;
   border:none;
-  font-size:18px;
+  font-size:17px;
   font-weight:900;
   border-radius:14px;
   background:linear-gradient(135deg,#facc15,#f59e0b);
@@ -68,67 +156,149 @@ button{
 }
 .status{
   text-align:center;
-  margin-top:10px;
+  margin-top:6px;
   color:var(--accent);
+  font-size:13px;
 }
-.wrap{max-width:500px;margin:0 auto;}
+
+footer{
+  padding:22px 16px;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+}
 </style>
 </head>
 
 <body>
 
-<section class="wrap">
-<h2>BORANG SEBUT HARGA</h2>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <h1>
+      Renew Roadtax & Insurans<br>
+      Tanpa Beratur. Tanpa Pening.
+    </h1>
+    <p>
+      Urus 100% online — <b>e-Cover terus ke WhatsApp</b>.
+      Cepat, jelas dan selamat.
+    </p>
 
+    <ul>
+      <li>✅ Kereta & Motosikal</li>
+      <li>✅ 1st Party & 3rd Party</li>
+      <li>✅ Proses pantas, harga telus</li>
+    </ul>
+
+    <div class="hero-cta">
+      <a href="#borang" class="btn-primary">👉 Dapatkan Sebut Harga Sekarang</a>
+      <a href="https://wa.me/60179699926" class="btn-secondary">WhatsApp Terus</a>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Kenapa Ramai Orang Stress Bila Nak Renew?</h2>
+      <p>Ini realiti yang selalu berlaku</p>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>❌ Beratur & buang masa</h3><p>Kena ambil cuti</p></div>
+      <div class="card"><h3>❌ Coverage mengelirukan</h3><p>Takut salah pilih</p></div>
+      <div class="card"><h3>❌ Harga tak jelas</h3><p>Tiba-tiba mahal</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Kami Ringkaskan Jadi 1 Proses Mudah</h2>
+      <p>Tak perlu ke JPJ. Tak perlu pening.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>🚀 Proses Pantas</h3><p>Kebanyakan kes siap hari sama</p></div>
+      <div class="card"><h3>🛡 Coverage Ikut Keperluan</h3><p>Kami jelaskan sebelum anda setuju</p></div>
+      <div class="card"><h3>📲 Terus WhatsApp</h3><p>Semua dari rumah</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Hanya 3 Langkah Mudah</h2>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>1️⃣ Isi Borang</h3><p>Kurang 1 minit</p></div>
+      <div class="card"><h3>2️⃣ Dapat Sebut Harga</h3><p>Terus ke WhatsApp</p></div>
+      <div class="card"><h3>3️⃣ Terima e-Cover</h3><p>Tak perlu beratur</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BORANG -->
+<section id="borang">
+  <div class="container">
+    <div class="section-title">
+      <h2>Isi Borang Sebut Harga Sekarang</h2>
+      <p>Ambil masa kurang 1 minit • Respon pantas</p>
+    </div>
+
+<div class="wrap">
 <form id="waForm">
 
 <label>Jenis Kenderaan</label>
 <div class="select-wrap">
 <select id="jenis" required>
-  <option value="">— Pilih —</option>
-  <option>Kereta</option>
-  <option>Motosikal</option>
+<option value="">— Pilih —</option>
+<option>Kereta</option>
+<option>Motosikal</option>
 </select>
 </div>
 
 <label>Jenis Coverage</label>
 <div class="select-wrap">
 <select id="coverage" required>
-  <option value="">— Pilih —</option>
-  <option>1st Party</option>
-  <option>3rd Party</option>
+<option value="">— Pilih —</option>
+<option>1st Party</option>
+<option>3rd Party</option>
 </select>
 </div>
 
 <label id="labelCermin">Cover Cermin</label>
 <div class="select-wrap">
 <select id="cermin">
-  <option>Ya</option>
-  <option>Tidak</option>
+<option>Ya</option>
+<option>Tidak</option>
 </select>
 </div>
 
 <label id="labelBanjir">Perlindungan Banjir</label>
 <div class="select-wrap">
 <select id="banjir">
-  <option>Ya</option>
-  <option>Tidak</option>
+<option>Ya</option>
+<option>Tidak</option>
 </select>
 </div>
 
 <label id="labelTowing">Unlimited Towing + PA</label>
 <div class="select-wrap">
 <select id="towing">
-  <option>Nak</option>
-  <option>Tak Nak</option>
+<option>Nak</option>
+<option>Tak Nak</option>
 </select>
 </div>
 
 <label>Roadtax Digital</label>
 <div class="select-wrap">
 <select id="digital">
-  <option>Nak</option>
-  <option>Tak Nak</option>
+<option>Nak</option>
+<option>Tak Nak</option>
 </select>
 </div>
 
@@ -136,98 +306,77 @@ button{
 <input id="nama" required placeholder="Contoh: Ahmad Bin Ali">
 
 <label>No. WhatsApp</label>
-<input id="wasap" required placeholder="Contoh: 0179699926" inputmode="numeric">
+<input id="wasap" required placeholder="Contoh: 0179699926">
 
-<button type="submit">HANTAR KE WHATSAPP</button>
+<button type="submit">🚀 HANTAR & DAPATKAN SEBUT HARGA</button>
 <div class="status" id="status"></div>
 
 </form>
+</div>
+
+  </div>
 </section>
 
+<footer>
+© 2025 Renew Premium • Semua Hak Terpelihara
+</footer>
+
 <script>
-/* ===============================
-   ELEMENT
-================================ */
-const jenis = document.getElementById("jenis");
-const coverage = document.getElementById("coverage");
+const jenis=document.getElementById("jenis");
+const coverage=document.getElementById("coverage");
 
-const labelCermin = document.getElementById("labelCermin");
-const labelBanjir = document.getElementById("labelBanjir");
-const labelTowing = document.getElementById("labelTowing");
+const labelCermin=document.getElementById("labelCermin");
+const labelBanjir=document.getElementById("labelBanjir");
+const labelTowing=document.getElementById("labelTowing");
 
-const cermin = document.getElementById("cermin");
-const banjir = document.getElementById("banjir");
-const towing = document.getElementById("towing");
-const digital = document.getElementById("digital");
+const cermin=document.getElementById("cermin");
+const banjir=document.getElementById("banjir");
+const towing=document.getElementById("towing");
+const digital=document.getElementById("digital");
 
-const nama = document.getElementById("nama");
-const wasap = document.getElementById("wasap");
-const statusEl = document.getElementById("status");
+const nama=document.getElementById("nama");
+const wasap=document.getElementById("wasap");
+const statusEl=document.getElementById("status");
 
-/* ===============================
-   STATE
-================================ */
-let state = {
-  cermin:true,
-  banjir:true,
-  towing:true
-};
+let state={cermin:true,banjir:true,towing:true};
 
-/* ===============================
-   UTILITI
-================================ */
-function hide(label, select, key){
+function hide(label,select,key){
   label.style.display="none";
   select.parentElement.style.display="none";
   state[key]=false;
 }
-function show(label, select, key){
+function show(label,select,key){
   label.style.display="block";
   select.parentElement.style.display="block";
   state[key]=true;
 }
 
-/* ===============================
-   LOGIC BORANG
-================================ */
 function updateFields(){
-
-  // reset default (kereta)
   show(labelCermin,cermin,"cermin");
   show(labelBanjir,banjir,"banjir");
   show(labelTowing,towing,"towing");
 
-  // motosikal
   if(jenis.value==="Motosikal"){
     hide(labelCermin,cermin,"cermin");
     hide(labelBanjir,banjir,"banjir");
     hide(labelTowing,towing,"towing");
   }
-
-  // kereta + 3rd party
   if(jenis.value==="Kereta" && coverage.value==="3rd Party"){
     hide(labelCermin,cermin,"cermin");
     hide(labelBanjir,banjir,"banjir");
-    // towing kekal
   }
 }
-
 jenis.addEventListener("change",updateFields);
 coverage.addEventListener("change",updateFields);
 updateFields();
 
-/* ===============================
-   SUBMIT WHATSAPP (CLEAN)
-================================ */
 const WHATSAPP_RECEIVER="60179699926";
-
 document.getElementById("waForm").addEventListener("submit",function(e){
   e.preventDefault();
+  const raw=wasap.value.replace(/\D/g,'');
+  const phone=raw.startsWith("0")?"60"+raw.slice(1):raw;
 
-  const raw = wasap.value.replace(/\D/g,'');
-  const phone = raw.startsWith("0") ? "60"+raw.slice(1) : raw;
-
-  let lines = [];
+  let lines=[];
   lines.push("BORANG SEBUTHARGA INSURANS");
   lines.push("");
   lines.push(`Nama: ${nama.value}`);
@@ -235,18 +384,14 @@ document.getElementById("waForm").addEventListener("submit",function(e){
   lines.push("");
   lines.push(`Jenis Kenderaan: ${jenis.value}`);
   lines.push(`Coverage: ${coverage.value}`);
-
   if(state.cermin) lines.push(`Cover Cermin: ${cermin.value}`);
   if(state.banjir) lines.push(`Banjir: ${banjir.value}`);
   if(state.towing) lines.push(`Towing + PA: ${towing.value}`);
-
   lines.push(`Roadtax Digital: ${digital.value}`);
-
-  const msg = lines.join("\n");
 
   statusEl.textContent="Membuka WhatsApp...";
   window.open(
-    "https://wa.me/"+WHATSAPP_RECEIVER+"?text="+encodeURIComponent(msg),
+    "https://wa.me/"+WHATSAPP_RECEIVER+"?text="+encodeURIComponent(lines.join("\n")),
     "_blank"
   );
 });
