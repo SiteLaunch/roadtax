@@ -17,7 +17,7 @@
   --radius:14px;
 }
 
-/* ================= RESET TOTAL ================= */
+/* ================= RESET ================= */
 *{
   margin:0;
   padding:0;
@@ -32,18 +32,11 @@ body{
   line-height:1.45;
   overflow-x:hidden;
 }
-
-/* BUANG GARIS */
-a, a:link, a:visited, a:hover, a:active{
-  text-decoration:none !important;
-  outline:none !important;
-  box-shadow:none !important;
-  color:inherit;
-}
-button, button:focus, a:focus{
-  outline:none !important;
-  box-shadow:none !important;
+a,button{
+  outline:none;
   border:none;
+  text-decoration:none;
+  color:inherit;
 }
 
 /* ================= GLOBAL ================= */
@@ -53,10 +46,7 @@ section{padding:16px 14px;margin:0}
 
 /* ================= HERO ================= */
 .hero{
-  padding-top:24px;
-  padding-bottom:24px;
-  display:flex;
-  justify-content:center;
+  padding:24px 14px;
   background:linear-gradient(180deg,rgba(2,6,23,.96),rgba(2,6,23,.99));
 }
 .hero h1{
@@ -96,9 +86,7 @@ section{padding:16px 14px;margin:0}
   border:2px solid var(--accent);
   color:var(--accent);
 }
-
-/* paksa section melekat */
-.hero + section{padding-top:0 !important}
+.hero + section{padding-top:0!important}
 
 /* ================= SECTION ================= */
 .section-title h2{
@@ -116,8 +104,15 @@ section{padding:16px 14px;margin:0}
   border-radius:var(--radius);
   margin-top:8px;
 }
-.card h3{font-size:15px;color:var(--accent)}
-.card p{font-size:14px;color:var(--muted);margin-top:2px}
+.card h3{
+  font-size:15px;
+  color:var(--accent);
+}
+.card p{
+  font-size:14px;
+  color:var(--muted);
+  margin-top:2px;
+}
 
 /* ================= FORM ================= */
 .wrap{margin-top:8px}
@@ -148,7 +143,6 @@ select,input{
   color:var(--accent);
   font-weight:700;
   text-align:center;
-  appearance:none;
 }
 button{
   width:100%;
@@ -175,7 +169,7 @@ footer{
   color:var(--muted);
 }
 
-/* ================= PATCH: STICKY WHATSAPP ================= */
+/* ================= STICKY WHATSAPP ================= */
 .sticky-wa{
   position:fixed;
   bottom:14px;
@@ -190,26 +184,65 @@ footer{
   text-align:center;
   font-weight:900;
   z-index:9999;
-  transition:opacity .25s ease, transform .25s ease;
+  transition:.25s ease;
 }
 .sticky-wa.hide{
   opacity:0;
   pointer-events:none;
   transform:translateX(-50%) translateY(10px);
 }
-
-/* ruang supaya sticky tak tutup content */
 body::after{
   content:"";
   display:block;
   height:90px;
+}
+
+/* ================= EXIT INTENT ================= */
+.exit-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:9998;
+  display:none;
+}
+.exit-popup{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:90%;
+  max-width:360px;
+  background:var(--card);
+  border:2px solid var(--accent);
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+  z-index:9999;
+  display:none;
+}
+.exit-popup h3{
+  color:var(--accent);
+  font-size:18px;
+}
+.exit-popup p{
+  margin-top:6px;
+  font-size:14px;
+  color:var(--muted);
+}
+.exit-popup button{
+  margin-top:14px;
+  padding:12px 16px;
+  border-radius:999px;
+  font-weight:900;
+  background:linear-gradient(135deg,#facc15,#f59e0b);
+  color:#000;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero center">
   <div class="container">
     <h1>Renew Roadtax & Insurans<br>Tanpa Beratur. Tanpa Pening.</h1>
@@ -223,12 +256,17 @@ body::after{
 
     <div class="hero-cta">
       <a href="#borang" class="btn-main">👉 Dapatkan Sebut Harga Sekarang</a>
-      <a href="https://wa.me/60179699926" class="btn-alt">WhatsApp Terus</a>
+
+      <!-- WHATSAPP DIRECT (AYAT AUTO) -->
+      <a href="https://wa.me/60179699926?text=Hi%2C%20RenewRoadtaxMurah.%0ASaya%20nak%20renew%20insurans."
+         class="btn-alt" target="_blank">
+        WhatsApp Terus
+      </a>
     </div>
   </div>
 </section>
 
-<!-- PAIN -->
+<!-- ================= PAIN ================= -->
 <section class="center">
   <div class="container">
     <div class="section-title">
@@ -242,12 +280,10 @@ body::after{
   </div>
 </section>
 
-<!-- FLOW -->
+<!-- ================= FLOW ================= -->
 <section class="center">
   <div class="container">
-    <div class="section-title">
-      <h2>3 Langkah Mudah</h2>
-    </div>
+    <div class="section-title"><h2>3 Langkah Mudah</h2></div>
 
     <div class="card"><h3>1️⃣ Isi Borang</h3><p>Kurang 1 minit</p></div>
     <div class="card"><h3>2️⃣ Dapat Sebut Harga</h3><p>Terus WhatsApp</p></div>
@@ -255,7 +291,7 @@ body::after{
   </div>
 </section>
 
-<!-- BORANG -->
+<!-- ================= BORANG ================= -->
 <section id="borang" class="center">
   <div class="container">
     <div class="section-title">
@@ -263,71 +299,70 @@ body::after{
       <p>Respon pantas • Kurang 1 minit</p>
     </div>
 
-<div class="wrap">
-<form id="waForm">
+    <div class="wrap">
+      <form id="waForm">
 
-<label>Jenis Kenderaan</label>
-<div class="select-wrap">
-<select id="jenis" required>
-<option value="">— Pilih —</option>
-<option>Kereta</option>
-<option>Motosikal</option>
-</select>
-</div>
+        <label>Jenis Kenderaan</label>
+        <div class="select-wrap">
+          <select id="jenis" required>
+            <option value="">— Pilih —</option>
+            <option>Kereta</option>
+            <option>Motosikal</option>
+          </select>
+        </div>
 
-<label>Jenis Coverage</label>
-<div class="select-wrap">
-<select id="coverage" required>
-<option value="">— Pilih —</option>
-<option>1st Party</option>
-<option>3rd Party</option>
-</select>
-</div>
+        <label>Jenis Coverage</label>
+        <div class="select-wrap">
+          <select id="coverage" required>
+            <option value="">— Pilih —</option>
+            <option>1st Party</option>
+            <option>3rd Party</option>
+          </select>
+        </div>
 
-<label id="labelCermin">Cover Cermin</label>
-<div class="select-wrap">
-<select id="cermin">
-<option>Ya</option>
-<option>Tidak</option>
-</select>
-</div>
+        <label id="labelCermin">Cover Cermin</label>
+        <div class="select-wrap">
+          <select id="cermin">
+            <option>Ya</option>
+            <option>Tidak</option>
+          </select>
+        </div>
 
-<label id="labelBanjir">Perlindungan Banjir</label>
-<div class="select-wrap">
-<select id="banjir">
-<option>Ya</option>
-<option>Tidak</option>
-</select>
-</div>
+        <label id="labelBanjir">Perlindungan Banjir</label>
+        <div class="select-wrap">
+          <select id="banjir">
+            <option>Ya</option>
+            <option>Tidak</option>
+          </select>
+        </div>
 
-<label id="labelTowing">Unlimited Towing + PA</label>
-<div class="select-wrap">
-<select id="towing">
-<option>Nak</option>
-<option>Tak Nak</option>
-</select>
-</div>
+        <label id="labelTowing">Unlimited Towing + PA</label>
+        <div class="select-wrap">
+          <select id="towing">
+            <option>Nak</option>
+            <option>Tak Nak</option>
+          </select>
+        </div>
 
-<label>Roadtax Digital</label>
-<div class="select-wrap">
-<select id="digital">
-<option>Nak</option>
-<option>Tak Nak</option>
-</select>
-</div>
+        <label>Roadtax Digital</label>
+        <div class="select-wrap">
+          <select id="digital">
+            <option>Nak</option>
+            <option>Tak Nak</option>
+          </select>
+        </div>
 
-<label>Nama Penuh</label>
-<input id="nama" required placeholder="Contoh: Ahmad Bin Ali">
+        <label>Nama Penuh</label>
+        <input id="nama" required placeholder="Contoh: Ahmad Bin Ali">
 
-<label>No. WhatsApp</label>
-<input id="wasap" required placeholder="Contoh: 0179699926">
+        <label>No. WhatsApp</label>
+        <input id="wasap" required placeholder="Contoh: 0179699926">
 
-<button type="submit">🚀 HANTAR & DAPATKAN SEBUT HARGA</button>
-<div class="status" id="status"></div>
+        <button type="submit">🚀 HANTAR & DAPATKAN SEBUT HARGA</button>
+        <div class="status"></div>
 
-</form>
-</div>
-
+      </form>
+    </div>
   </div>
 </section>
 
@@ -335,15 +370,23 @@ body::after{
 © 2025 Renew Premium • Semua Hak Terpelihara
 </footer>
 
-<!-- PATCH: STICKY WHATSAPP -->
+<!-- ================= STICKY WHATSAPP ================= -->
 <a id="stickyWA" class="sticky-wa"
-   href="https://wa.me/60179699926"
+   href="https://wa.me/60179699926?text=Hi%2C%20RenewRoadtaxMurah.%0ASaya%20nak%20renew%20insurans."
    target="_blank">
 💬 WhatsApp Sekarang
 </a>
 
+<!-- ================= EXIT INTENT ================= -->
+<div id="exitOverlay" class="exit-overlay"></div>
+<div id="exitPopup" class="exit-popup">
+  <h3>Sebelum anda keluar…</h3>
+  <p>Dapatkan sebutharga percuma dulu 🚀</p>
+  <button onclick="closeExit()">OK, Teruskan</button>
+</div>
+
 <script>
-/* ========= FORM LOGIC (ASAL) ========= */
+/* ===== FORM LOGIC ===== */
 const jenis=document.getElementById("jenis");
 const coverage=document.getElementById("coverage");
 const labelCermin=document.getElementById("labelCermin");
@@ -358,9 +401,16 @@ const wasap=document.getElementById("wasap");
 
 let state={cermin:true,banjir:true,towing:true};
 
-function hide(l,s,k){l.style.display="none";s.parentElement.style.display="none";state[k]=false}
-function show(l,s,k){l.style.display="block";s.parentElement.style.display="block";state[k]=true}
-
+function hide(l,s,k){
+  l.style.display="none";
+  s.parentElement.style.display="none";
+  state[k]=false;
+}
+function show(l,s,k){
+  l.style.display="block";
+  s.parentElement.style.display="block";
+  state[k]=true;
+}
 function update(){
   show(labelCermin,cermin,"cermin");
   show(labelBanjir,banjir,"banjir");
@@ -402,7 +452,7 @@ document.getElementById("waForm").addEventListener("submit",e=>{
   );
 });
 
-/* ========= PATCH: AUTO HIDE STICKY BILA BORANG NAMPAK ========= */
+/* ===== STICKY AUTO HIDE ===== */
 const stickyWA=document.getElementById("stickyWA");
 const borangSection=document.getElementById("borang");
 
@@ -417,6 +467,25 @@ if(stickyWA && borangSection){
     });
   },{threshold:0.25});
   observer.observe(borangSection);
+}
+
+/* ===== EXIT INTENT ===== */
+let lastScrollY=window.scrollY;
+let exitShown=false;
+
+window.addEventListener("scroll",()=>{
+  const currentY=window.scrollY;
+  if(currentY<lastScrollY-40 && currentY<220 && !exitShown){
+    exitShown=true;
+    exitOverlay.style.display="block";
+    exitPopup.style.display="block";
+  }
+  lastScrollY=currentY;
+});
+
+function closeExit(){
+  exitOverlay.style.display="none";
+  exitPopup.style.display="none";
 }
 </script>
 
