@@ -18,10 +18,21 @@
   --radius:12px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Inter,Arial,sans-serif;background:var(--primary);color:var(--text);}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:var(--primary);
+  color:var(--text);
+  line-height:1.5;
+}
 section{padding:40px 15px;}
 h2{text-align:center;color:var(--accent);margin-bottom:20px;}
-label{display:block;margin:12px 0 6px;font-weight:700;color:var(--accent);text-align:center;}
+label{
+  display:block;
+  margin:12px 0 6px;
+  font-weight:700;
+  color:var(--accent);
+  text-align:center;
+}
 .select-wrap{position:relative;}
 .select-wrap::after{
   content:"▼";
@@ -55,7 +66,11 @@ button{
   color:#000;
   cursor:pointer;
 }
-.status{text-align:center;margin-top:10px;color:var(--accent);}
+.status{
+  text-align:center;
+  margin-top:10px;
+  color:var(--accent);
+}
 .wrap{max-width:500px;margin:0 auto;}
 </style>
 </head>
@@ -150,7 +165,7 @@ const wasap = document.getElementById("wasap");
 const statusEl = document.getElementById("status");
 
 /* ===============================
-   STATE (PENTING)
+   STATE
 ================================ */
 let state = {
   cermin:true,
@@ -173,7 +188,7 @@ function show(label, select, key){
 }
 
 /* ===============================
-   LOGIC BORANG (FINAL)
+   LOGIC BORANG
 ================================ */
 function updateFields(){
 
@@ -182,18 +197,18 @@ function updateFields(){
   show(labelBanjir,banjir,"banjir");
   show(labelTowing,towing,"towing");
 
-  // motosikal: tiada add-on
+  // motosikal
   if(jenis.value==="Motosikal"){
     hide(labelCermin,cermin,"cermin");
     hide(labelBanjir,banjir,"banjir");
     hide(labelTowing,towing,"towing");
   }
 
-  // kereta + 3rd party: tiada cermin & banjir
+  // kereta + 3rd party
   if(jenis.value==="Kereta" && coverage.value==="3rd Party"){
     hide(labelCermin,cermin,"cermin");
     hide(labelBanjir,banjir,"banjir");
-    // towing KEKAL ADA
+    // towing kekal
   }
 }
 
@@ -202,28 +217,32 @@ coverage.addEventListener("change",updateFields);
 updateFields();
 
 /* ===============================
-   SUBMIT WHATSAPP
+   SUBMIT WHATSAPP (CLEAN)
 ================================ */
 const WHATSAPP_RECEIVER="60179699926";
 
 document.getElementById("waForm").addEventListener("submit",function(e){
   e.preventDefault();
 
-  const raw=wasap.value.replace(/\D/g,'');
-  const phone=raw.startsWith("0")?"60"+raw.slice(1):raw;
+  const raw = wasap.value.replace(/\D/g,'');
+  const phone = raw.startsWith("0") ? "60"+raw.slice(1) : raw;
 
-  const msg=
-`BORANG SEBUTHARGA INSURANS
+  let lines = [];
+  lines.push("BORANG SEBUTHARGA INSURANS");
+  lines.push("");
+  lines.push(`Nama: ${nama.value}`);
+  lines.push(`No WhatsApp: ${phone}`);
+  lines.push("");
+  lines.push(`Jenis Kenderaan: ${jenis.value}`);
+  lines.push(`Coverage: ${coverage.value}`);
 
-Nama: ${nama.value}
-No WhatsApp: ${phone}
+  if(state.cermin) lines.push(`Cover Cermin: ${cermin.value}`);
+  if(state.banjir) lines.push(`Banjir: ${banjir.value}`);
+  if(state.towing) lines.push(`Towing + PA: ${towing.value}`);
 
-Jenis Kenderaan: ${jenis.value}
-Coverage: ${coverage.value}
-Cover Cermin: ${state.cermin?cermin.value:"Tiada"}
-Banjir: ${state.banjir?banjir.value:"Tiada"}
-Towing: ${state.towing?towing.value:"Tiada"}
-Roadtax Digital: ${digital.value}`;
+  lines.push(`Roadtax Digital: ${digital.value}`);
+
+  const msg = lines.join("\n");
 
   statusEl.textContent="Membuka WhatsApp...";
   window.open(
