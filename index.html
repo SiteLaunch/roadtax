@@ -17,20 +17,16 @@
   --green:#25D366;
   --radius:14px;
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
   font-family:Inter,Arial,sans-serif;
   background:var(--primary);
   color:var(--text);
   line-height:1.55;
 }
-
 section{padding:40px 16px}
 h2{text-align:center;color:var(--accent);margin-bottom:18px}
 p{text-align:center;color:var(--muted)}
-
 a{text-decoration:none;color:inherit}
 
 /* HERO */
@@ -73,7 +69,7 @@ a{text-decoration:none;color:inherit}
   color:var(--accent);
 }
 
-/* BOX */
+/* CARD GRID */
 .flex{
   display:flex;
   gap:14px;
@@ -91,10 +87,7 @@ a{text-decoration:none;color:inherit}
 .card p{font-size:14px}
 
 /* FORM */
-.wrap{
-  max-width:500px;
-  margin:0 auto;
-}
+.wrap{max-width:500px;margin:0 auto}
 label{
   display:block;
   margin:14px 0 6px;
@@ -122,6 +115,11 @@ select,input{
   font-weight:700;
   text-align:center;
   appearance:none;
+}
+select:focus,input:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 8px rgba(250,204,21,.4);
 }
 input::placeholder{color:rgba(250,204,21,.4)}
 
@@ -178,12 +176,8 @@ button{
   z-index:9999;
 }
 .exit-popup.show,
-.exit-overlay.show{
-  display:block;
-}
-.exit-popup.show{
-  transform:translate(-50%,-50%) scale(1);
-}
+.exit-overlay.show{display:block}
+.exit-popup.show{transform:translate(-50%,-50%) scale(1)}
 .exit-close{
   margin-top:18px;
   background:var(--accent);
@@ -216,11 +210,11 @@ button{
 </div>
 
 <section>
-<h2>Kelebihan Kami</h2>
+<h2>Kelebihan Servis Kami</h2>
 <div class="flex">
   <div class="card"><h3>🚀 Pantas</h3><p>Siap dalam beberapa minit</p></div>
   <div class="card"><h3>🛡 Lengkap</h3><p>1st / 3rd Party + Add-on</p></div>
-  <div class="card"><h3>📲 Mudah</h3><p>Tanpa ke JPJ / pejabat</p></div>
+  <div class="card"><h3>📲 Mudah</h3><p>Tak perlu ke JPJ</p></div>
 </div>
 </section>
 
@@ -228,6 +222,7 @@ button{
 <h2>Borang Sebut Harga</h2>
 
 <form id="waForm">
+
 <label>Jenis Kenderaan</label>
 <div class="select-wrap">
 <select id="jenis" required>
@@ -246,19 +241,25 @@ button{
 </select>
 </div>
 
-<label id="labelCermin">Cover Cermin</label>
-<div class="select-wrap" id="wrapCermin">
-<select id="cermin"><option>Ya</option><option>Tidak</option></select>
+<div id="wrapCermin">
+<label>Cover Cermin</label>
+<div class="select-wrap">
+<select id="cermin">
+<option>Ya</option>
+<option>Tidak</option>
+</select>
+</div>
 </div>
 
 <label>Nama Penuh</label>
-<input id="nama" required placeholder="Ahmad Bin Ali">
+<input id="nama" required placeholder="Contoh: Ahmad Bin Ali">
 
 <label>No WhatsApp</label>
-<input id="wasap" required placeholder="0179699926" inputmode="numeric">
+<input id="wasap" required placeholder="Contoh: 0179699926" inputmode="numeric">
 
 <button type="submit">HANTAR KE WHATSAPP</button>
 <div class="status" id="status"></div>
+
 </form>
 </section>
 
@@ -266,24 +267,54 @@ button{
 
 <div class="exit-overlay" id="exitOverlay"></div>
 <div class="exit-popup" id="exitPopup">
+Sebelum keluar…<br>
+<span style="color:#fff;font-size:16px;font-weight:600">
 Claim sebutharga percuma dulu 🚀
+</span>
 <div class="exit-close" id="exitClose">OK</div>
 </div>
 
 <script>
+/* ELEMENT */
 const jenis = document.getElementById("jenis");
 const coverage = document.getElementById("coverage");
 const wrapCermin = document.getElementById("wrapCermin");
-const exitPopup = document.getElementById("exitPopup");
-const exitOverlay = document.getElementById("exitOverlay");
+const waForm = document.getElementById("waForm");
+const statusEl = document.getElementById("status");
 
+/* DYNAMIC FIELD */
 function updateFields(){
-  wrapCermin.style.display =
-    (jenis.value==="Kereta" && coverage.value==="1st Party")
-    ? "block":"none";
+  if(jenis.value==="Kereta" && coverage.value==="1st Party"){
+    wrapCermin.style.display="block";
+  }else{
+    wrapCermin.style.display="none";
+  }
 }
-jenis.onchange = coverage.onchange = updateFields;
+jenis.addEventListener("change",updateFields);
+coverage.addEventListener("change",updateFields);
 updateFields();
+
+/* SUBMIT WHATSAPP */
+const WA_NUMBER="60179699926";
+
+waForm.addEventListener("submit",e=>{
+  e.preventDefault();
+
+  const raw=document.getElementById("wasap").value.replace(/\D/g,'');
+  const phone=raw.startsWith("0") ? "60"+raw.slice(1) : raw;
+
+  const msg=
+`BORANG SEBUTHARGA INSURANS
+
+Nama: ${nama.value}
+No WhatsApp: ${phone}
+Jenis Kenderaan: ${jenis.value}
+Coverage: ${coverage.value}
+Cover Cermin: ${wrapCermin.style.display==="none"?"Tiada":cermin.value}`;
+
+  statusEl.textContent="Membuka WhatsApp...";
+  window.open("https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg),"_blank");
+});
 
 /* EXIT INTENT */
 let exitShown=false;
