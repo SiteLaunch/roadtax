@@ -2,492 +2,242 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Renew Roadtax & Insurans Online</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renew Roadtax & Insurans Malaysia | Murah & Dipercayai</title>
 
 <style>
 :root{
-  --bg:#020617;
-  --card:#0b122b;
-  --accent:#facc15;
-  --text:#f5f5f5;
-  --muted:#9ca3af;
-  --radius:14px;
+  --bg:#0b1220;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --accent:#2563eb;
+  --accent-dark:#1e40af;
+  --border:#e5e7eb;
 }
 
-/* ================= RESET ================= */
 *{
-  margin:0;
-  padding:0;
   box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
 }
-html,body{width:100%}
+
 body{
-  font-family:Inter,Arial,sans-serif;
-  background:var(--bg);
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
+  background:linear-gradient(180deg,#0b1220,#020617);
   color:var(--text);
-  line-height:1.45;
-  overflow-x:hidden;
-}
-a,button{
-  outline:none;
-  border:none;
-  text-decoration:none;
-  color:inherit;
 }
 
-/* ================= GLOBAL ================= */
-section{padding:16px 14px;margin:0}
-.center{text-align:center}
-.container{max-width:480px;margin:0 auto}
+.container{
+  max-width:420px;
+  margin:auto;
+  padding:28px 16px 56px;
+}
 
-/* ================= HERO ================= */
-.hero{
-  padding:24px 14px;
-  background:linear-gradient(180deg,rgba(2,6,23,.96),rgba(2,6,23,.99));
-}
-.hero h1{
-  font-size:28px;
-  font-weight:800;
-  color:var(--accent);
-  line-height:1.15;
-}
-.hero p{
-  margin-top:8px;
-  font-size:15px;
-  color:var(--muted);
-}
-.hero ul{
-  list-style:none;
-  margin-top:10px;
-}
-.hero ul li{
-  font-size:14px;
-  margin-bottom:4px;
-}
-.hero-cta{margin-top:12px}
-.hero-cta a{
-  display:block;
-  width:100%;
-  padding:14px;
-  margin-bottom:8px;
-  border-radius:999px;
-  font-weight:900;
+/* HEADER */
+.header{
   text-align:center;
+  margin-bottom:28px;
 }
-.btn-main{
-  background:linear-gradient(135deg,#facc15,#f59e0b);
-  color:#000;
-}
-.btn-alt{
-  border:2px solid var(--accent);
-  color:var(--accent);
-}
-.hero + section{padding-top:0!important}
 
-/* ================= SECTION ================= */
-.section-title h2{
-  font-size:21px;
-  color:var(--accent);
-}
-.section-title p{
+.badge{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:999px;
+  background:rgba(37,99,235,.12);
+  color:#93c5fd;
   font-size:13px;
-  color:var(--muted);
-  margin-top:2px;
+  font-weight:500;
+  margin-bottom:12px;
 }
+
+.header h1{
+  font-size:26px;
+  line-height:1.35;
+  color:#ffffff;
+  margin:8px 0 10px;
+}
+
+.header p{
+  color:#cbd5f5;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* CARD */
 .card{
   background:var(--card);
-  padding:14px;
-  border-radius:var(--radius);
-  margin-top:8px;
-}
-.card h3{
-  font-size:15px;
-  color:var(--accent);
-}
-.card p{
-  font-size:14px;
-  color:var(--muted);
-  margin-top:2px;
+  border-radius:20px;
+  padding:24px 20px;
+  margin-bottom:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
 }
 
-/* ================= FORM ================= */
-.wrap{margin-top:8px}
-label{
-  display:block;
-  margin:8px 0 4px;
-  font-weight:700;
-  font-size:14px;
-  color:var(--accent);
-  text-align:center;
-}
-.select-wrap{position:relative}
-.select-wrap::after{
-  content:"▼";
-  position:absolute;
-  right:14px;
-  top:50%;
-  transform:translateY(-50%);
-  color:var(--accent);
-}
-select,input{
-  width:100%;
-  height:46px;
-  padding:0 14px;
-  border-radius:12px;
-  border:2px solid rgba(250,204,21,.25);
-  background:#020617;
-  color:var(--accent);
-  font-weight:700;
-  text-align:center;
-}
-button{
-  width:100%;
-  margin-top:12px;
-  padding:14px;
-  border-radius:14px;
-  font-size:16px;
-  font-weight:900;
-  background:linear-gradient(135deg,#facc15,#f59e0b);
-  color:#000;
-}
-.status{
-  margin-top:4px;
-  font-size:12px;
-  color:var(--accent);
-  text-align:center;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  padding:14px 10px;
-  text-align:center;
-  font-size:11px;
-  color:var(--muted);
-}
-
-/* ================= STICKY WHATSAPP ================= */
-.sticky-wa{
-  position:fixed;
-  bottom:14px;
-  left:50%;
-  transform:translateX(-50%);
-  width:calc(100% - 28px);
-  max-width:480px;
-  background:#25D366;
-  color:#fff;
-  padding:14px;
-  border-radius:999px;
-  text-align:center;
-  font-weight:900;
-  z-index:9999;
-  transition:.25s ease;
-}
-.sticky-wa.hide{
-  opacity:0;
-  pointer-events:none;
-  transform:translateX(-50%) translateY(10px);
-}
-body::after{
-  content:"";
-  display:block;
-  height:90px;
-}
-
-/* ================= EXIT INTENT ================= */
-.exit-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:9998;
-  display:none;
-}
-.exit-popup{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:90%;
-  max-width:360px;
-  background:var(--card);
-  border:2px solid var(--accent);
-  border-radius:18px;
-  padding:20px;
-  text-align:center;
-  z-index:9999;
-  display:none;
-}
-.exit-popup h3{
-  color:var(--accent);
+.card h2{
   font-size:18px;
+  margin-bottom:12px;
 }
-.exit-popup p{
-  margin-top:6px;
-  font-size:14px;
+
+.card p{
+  font-size:15px;
+  line-height:1.7;
   color:var(--muted);
 }
-.exit-popup button{
-  margin-top:14px;
-  padding:12px 16px;
-  border-radius:999px;
-  font-weight:900;
-  background:linear-gradient(135deg,#facc15,#f59e0b);
-  color:#000;
+
+/* LIST */
+.list{
+  margin:16px 0;
+}
+
+.list-item{
+  display:flex;
+  gap:10px;
+  margin-bottom:12px;
+  font-size:15px;
+  color:#334155;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--accent);
+  margin-top:8px;
+  flex-shrink:0;
+}
+
+/* STEPS */
+.step{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:12px;
+  font-size:15px;
+}
+
+/* CTA */
+.cta{
+  text-align:center;
+  margin-top:6px;
+}
+
+.btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-dark));
+  color:#ffffff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:16px;
+  border-radius:14px;
+}
+
+.trust{
+  text-align:center;
+  font-size:13px;
+  color:#94a3b8;
+  margin-top:12px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HERO ================= -->
-<section class="hero center">
-  <div class="container">
-    <h1>Renew Roadtax & Insurans<br>Murah</h1>
-    <p>Urus 100% online. <b>Cover note terus ke WhatsApp</b>.</p>
+<div class="container">
 
-    <ul>
-      <li>✅ Kereta & Motosikal</li>
-      <li>✅ 1st Party & 3rd Party</li>
-      <li>✅ Proses pantas & telus</li>
-    </ul>
+  <!-- HERO -->
+  <div class="header">
+    <div class="badge">Perkhidmatan Rasmi Malaysia</div>
+    <h1>
+      Renew Roadtax & Insurans Malaysia<br>
+      Murah, Jelas & Tak Leceh
+    </h1>
+    <p>
+      Kami uruskan proses.<br>
+      Anda tahu harga sebenar sebelum setuju.
+    </p>
+  </div>
 
-    <div class="hero-cta">
-      <a href="#borang" class="btn-main">👉 Dapatkan Sebut Harga Sekarang</a>
+  <!-- PROBLEM -->
+  <div class="card">
+    <h2>Kenapa Ramai Rasa Renew Roadtax Itu Menyusahkan?</h2>
+    <div class="list">
+      <div class="list-item"><span class="dot"></span>Tak pasti insurans mana sesuai</div>
+      <div class="list-item"><span class="dot"></span>Harga berbeza, susah nak banding</div>
+      <div class="list-item"><span class="dot"></span>Tak faham istilah, tapi kena buat</div>
+      <div class="list-item"><span class="dot"></span>Tak nak kena push pakej mahal</div>
+    </div>
+    <p>Sebab tu ramai pilih servis yang terus terang.</p>
+  </div>
 
-      <!-- WHATSAPP DIRECT (AYAT AUTO) -->
+  <!-- SOLUTION -->
+  <div class="card">
+    <h2>Kami Buat Cara Yang Lebih Mudah</h2>
+    <p>
+      Anda jawab beberapa soalan asas.<br>
+      Kami cadangkan pilihan paling masuk akal
+      ikut bajet dan keperluan anda.
+    </p>
+    <p>
+      Tak perlu faham insurans.<br>
+      Tak perlu buat keputusan tergesa-gesa.
+    </p>
+  </div>
+
+  <!-- FLOW -->
+  <div class="card">
+    <h2>Proses Ringkas & Terus Jalan</h2>
+    <div class="step">1️⃣ Isi maklumat asas</div>
+    <div class="step">2️⃣ Kami kira & cadangkan harga</div>
+    <div class="step">3️⃣ Anda semak & setuju</div>
+    <div class="step">4️⃣ Roadtax & insurans siap</div>
+    <p>Semua dibuat dengan jelas. Anda tahu apa yang anda bayar.</p>
+  </div>
+
+  <!-- TRUST -->
+  <div class="card">
+    <h2>Kenapa Pilih Renew Roadtax Murah?</h2>
+    <div class="list">
+      <div class="list-item"><span class="dot"></span>Fokus pasaran Malaysia</div>
+      <div class="list-item"><span class="dot"></span>Harga telus, tiada caj tersembunyi</div>
+      <div class="list-item"><span class="dot"></span>Tak paksa pakej mahal</div>
+      <div class="list-item"><span class="dot"></span>Boleh tanya dulu sebelum setuju</div>
+    </div>
+    <p><strong>Murah tak semestinya sembarangan.</strong><br>
+    Kami utamakan yang betul untuk anda.</p>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card">
+    <h2>Soalan Lazim</h2>
+    <p><strong>Saya tak faham insurans.</strong><br>
+    Tak apa. Kami terangkan ringkas ikut situasi anda.</p>
+
+    <p><strong>Betul-betul murah?</strong><br>
+    Kami cadang ikut bajet. Anda yang tentukan.</p>
+
+    <p><strong>Boleh semak dulu tanpa bayar?</strong><br>
+    Ya. Semakan & cadangan adalah percuma.</p>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="card">
+    <h2>Renew Sekarang, Tak Perlu Tunggu Last Minute</h2>
+    <p>
+      Semak harga dulu.<br>
+      Buat keputusan bila dah yakin.
+    </p>
+    <div class="cta">
+      <!-- WHATSAPP BUTTON -->
       <a href="https://wa.me/60179699926?text=Hi%2C%20RenewRoadtaxMurah.%0ASaya%20nak%20renew%20insurans."
-         class="btn-alt" target="_blank">
-        WhatsApp Terus
+         class="btn">
+         WhatsApp Kami Sekarang
       </a>
+      <div class="trust">✔ Urusan Rasmi • ✔ Digunakan Pemandu Malaysia</div>
     </div>
   </div>
-</section>
 
-<!-- ================= PAIN ================= -->
-<section class="center">
-  <div class="container">
-    <div class="section-title">
-      <h2>Kenapa Ramai Orang Stress?</h2>
-      <p>Ini yang selalu berlaku</p>
-    </div>
-
-    <div class="card"><h3>❌ Beratur lama</h3><p>Kena ambil cuti</p></div>
-    <div class="card"><h3>❌ Coverage mengelirukan</h3><p>Takut salah pilih</p></div>
-    <div class="card"><h3>❌ Harga tak jelas</h3><p>Tiba-tiba mahal</p></div>
-  </div>
-</section>
-
-<!-- ================= FLOW ================= -->
-<section class="center">
-  <div class="container">
-    <div class="section-title"><h2>3 Langkah Mudah</h2></div>
-
-    <div class="card"><h3>1️⃣ Isi Borang</h3><p>Kurang 1 minit</p></div>
-    <div class="card"><h3>2️⃣ Dapat Sebut Harga</h3><p>Terus WhatsApp</p></div>
-    <div class="card"><h3>3️⃣ Terima Cover Note</h3><p>Siap tanpa beratur</p></div>
-  </div>
-</section>
-
-<!-- ================= BORANG ================= -->
-<section id="borang" class="center">
-  <div class="container">
-    <div class="section-title">
-      <h2>Isi Borang Sebut Harga</h2>
-      <p>Respon pantas • Kurang 1 minit</p>
-    </div>
-
-    <div class="wrap">
-      <form id="waForm">
-
-        <label>Jenis Kenderaan</label>
-        <div class="select-wrap">
-          <select id="jenis" required>
-            <option value="">— Pilih —</option>
-            <option>Kereta</option>
-            <option>Motosikal</option>
-          </select>
-        </div>
-
-        <label>Jenis Coverage</label>
-        <div class="select-wrap">
-          <select id="coverage" required>
-            <option value="">— Pilih —</option>
-            <option>1st Party</option>
-            <option>3rd Party</option>
-          </select>
-        </div>
-
-        <label id="labelCermin">Cover Cermin</label>
-        <div class="select-wrap">
-          <select id="cermin">
-            <option>Ya</option>
-            <option>Tidak</option>
-          </select>
-        </div>
-
-        <label id="labelBanjir">Perlindungan Banjir</label>
-        <div class="select-wrap">
-          <select id="banjir">
-            <option>Ya</option>
-            <option>Tidak</option>
-          </select>
-        </div>
-
-        <label id="labelTowing">Unlimited Towing + PA</label>
-        <div class="select-wrap">
-          <select id="towing">
-            <option>Nak</option>
-            <option>Tak Nak</option>
-          </select>
-        </div>
-
-        <label>Roadtax Digital</label>
-        <div class="select-wrap">
-          <select id="digital">
-            <option>Nak</option>
-            <option>Tak Nak</option>
-          </select>
-        </div>
-
-        <label>Nama Penuh</label>
-        <input id="nama" required placeholder="Contoh: Ahmad Bin Ali">
-
-        <label>No. WhatsApp</label>
-        <input id="wasap" required placeholder="Contoh: 0179699926">
-
-        <button type="submit">🚀 HANTAR & DAPATKAN SEBUT HARGA</button>
-        <div class="status"></div>
-
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-© 2025 Renew Premium • Semua Hak Terpelihara
-</footer>
-
-<!-- ================= STICKY WHATSAPP ================= -->
-<a id="stickyWA" class="sticky-wa"
-   href="https://wa.me/60179699926?text=Hi%2C%20RenewRoadtaxMurah.%0ASaya%20nak%20renew%20insurans."
-   target="_blank">
-💬 WhatsApp Sekarang
-</a>
-
-<!-- ================= EXIT INTENT ================= -->
-<div id="exitOverlay" class="exit-overlay"></div>
-<div id="exitPopup" class="exit-popup">
-  <h3>Sebelum anda keluar…</h3>
-  <p>Dapatkan sebutharga percuma dulu 🚀</p>
-  <button onclick="closeExit()">OK, Teruskan</button>
 </div>
-
-<script>
-/* ===== FORM LOGIC ===== */
-const jenis=document.getElementById("jenis");
-const coverage=document.getElementById("coverage");
-const labelCermin=document.getElementById("labelCermin");
-const labelBanjir=document.getElementById("labelBanjir");
-const labelTowing=document.getElementById("labelTowing");
-const cermin=document.getElementById("cermin");
-const banjir=document.getElementById("banjir");
-const towing=document.getElementById("towing");
-const digital=document.getElementById("digital");
-const nama=document.getElementById("nama");
-const wasap=document.getElementById("wasap");
-
-let state={cermin:true,banjir:true,towing:true};
-
-function hide(l,s,k){
-  l.style.display="none";
-  s.parentElement.style.display="none";
-  state[k]=false;
-}
-function show(l,s,k){
-  l.style.display="block";
-  s.parentElement.style.display="block";
-  state[k]=true;
-}
-function update(){
-  show(labelCermin,cermin,"cermin");
-  show(labelBanjir,banjir,"banjir");
-  show(labelTowing,towing,"towing");
-
-  if(jenis.value==="Motosikal"){
-    hide(labelCermin,cermin,"cermin");
-    hide(labelBanjir,banjir,"banjir");
-    hide(labelTowing,towing,"towing");
-  }
-  if(jenis.value==="Kereta" && coverage.value==="3rd Party"){
-    hide(labelCermin,cermin,"cermin");
-    hide(labelBanjir,banjir,"banjir");
-  }
-}
-jenis.addEventListener("change",update);
-coverage.addEventListener("change",update);
-update();
-
-document.getElementById("waForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const raw=wasap.value.replace(/\D/g,'');
-  const phone=raw.startsWith("0")?"60"+raw.slice(1):raw;
-
-  let msg=[];
-  msg.push("BORANG SEBUTHARGA INSURANS\n");
-  msg.push(`Nama: ${nama.value}`);
-  msg.push(`No WhatsApp: ${phone}\n`);
-  msg.push(`Jenis Kenderaan: ${jenis.value}`);
-  msg.push(`Coverage: ${coverage.value}`);
-  if(state.cermin) msg.push(`Cover Cermin: ${cermin.value}`);
-  if(state.banjir) msg.push(`Banjir: ${banjir.value}`);
-  if(state.towing) msg.push(`Towing + PA: ${towing.value}`);
-  msg.push(`Roadtax Digital: ${digital.value}`);
-
-  window.open(
-    "https://wa.me/60179699926?text="+encodeURIComponent(msg.join("\n")),
-    "_blank"
-  );
-});
-
-/* ===== STICKY AUTO HIDE ===== */
-const stickyWA=document.getElementById("stickyWA");
-const borangSection=document.getElementById("borang");
-
-if(stickyWA && borangSection){
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        stickyWA.classList.add("hide");
-      }else{
-        stickyWA.classList.remove("hide");
-      }
-    });
-  },{threshold:0.25});
-  observer.observe(borangSection);
-}
-
-/* ===== EXIT INTENT ===== */
-let lastScrollY=window.scrollY;
-let exitShown=false;
-
-window.addEventListener("scroll",()=>{
-  const currentY=window.scrollY;
-  if(currentY<lastScrollY-40 && currentY<220 && !exitShown){
-    exitShown=true;
-    exitOverlay.style.display="block";
-    exitPopup.style.display="block";
-  }
-  lastScrollY=currentY;
-});
-
-function closeExit(){
-  exitOverlay.style.display="none";
-  exitPopup.style.display="none";
-}
-</script>
 
 </body>
 </html>
