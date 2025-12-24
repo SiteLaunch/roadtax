@@ -7,21 +7,21 @@
 
 <style>
 :root{
-  /* BACKGROUND – CERAH */
-  --bg-top:#eaf1ff;      /* biru cerah */
-  --bg-bottom:#f5f7fb;   /* kelabu cerah */
+  /* BACKGROUND – BIRU → HIJAU */
+  --bg-top:#e8f1ff;     /* soft blue (TRUST) */
+  --bg-bottom:#e9fbf2;  /* whatsapp green lembut */
 
   /* CARD */
-  --card:#f8fafc;        /* off-white */
-  --card-border:#e2e8f0;
+  --card:#ffffff;
+  --card-border:#e5e7eb;
 
   /* TEXT */
   --text:#0f172a;
   --muted:#475569;
 
   /* ACCENT */
-  --primary:#2563eb;
-  --secondary:#22c55e;
+  --blue:#2563eb;
+  --green:#22c55e;
   --gradient:linear-gradient(135deg,#2563eb,#22c55e);
 }
 
@@ -32,10 +32,10 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
   color:var(--text);
 
-  /* ☀️ BACKGROUND CERAH 2 WARNA */
+  /* 🌤️ BACKGROUND BIRU + HIJAU (JELAS) */
   background:
-    radial-gradient(900px 400px at 20% -10%, rgba(37,99,235,.12), transparent),
-    radial-gradient(800px 350px at 80% 0%, rgba(34,197,94,.10), transparent),
+    radial-gradient(900px 420px at 20% -10%, rgba(37,99,235,.18), transparent),
+    radial-gradient(800px 380px at 85% 0%, rgba(34,197,94,.18), transparent),
     linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
 }
 
@@ -45,16 +45,17 @@ body{
   padding:32px 16px 72px;
 }
 
-/* ================= HERO (SIMPLE & CERAH) ================= */
+/* ================= HERO ================= */
 .hero{
   text-align:center;
-  padding:24px 18px 40px;
-  margin-bottom:48px;
+  padding:26px 20px 40px;
+  margin-bottom:40px;
 }
 
 .hero small{
   font-size:13px;
-  color:#475569;
+  color:#1d4ed8; /* BIRU JELAS */
+  font-weight:500;
 }
 
 .hero h1{
@@ -87,22 +88,22 @@ body{
   font-weight:600;
   font-size:16px;
   border-radius:18px;
-  box-shadow:0 12px 28px rgba(37,99,235,.25);
+  box-shadow:0 14px 30px rgba(37,99,235,.25);
 }
 
 .trust{
   margin-top:14px;
   font-size:13px;
-  color:#475569;
+  color:#1e40af; /* biru lembut */
 }
 
-/* ================= CONTENT ================= */
+/* ================= CARD ================= */
 .card{
   background:var(--card);
   border:1px solid var(--card-border);
-  border-radius:26px;
-  padding:30px 24px;
-  margin-bottom:28px;
+  border-radius:22px;
+  padding:28px 22px;
+  margin-bottom:24px;
   box-shadow:0 18px 40px rgba(15,23,42,.08);
 }
 
@@ -115,29 +116,28 @@ body{
   font-size:15px;
   line-height:1.85;
   color:var(--muted);
-  margin-bottom:16px;
+  margin-bottom:14px;
 }
 
 /* LIST */
 .list{
-  margin:18px 0 22px;
+  margin:16px 0 20px;
 }
 
 .list div{
   display:flex;
   align-items:flex-start;
   gap:12px;
-  margin-bottom:14px;
+  margin-bottom:12px;
   font-size:15px;
   line-height:1.7;
-  color:#0f172a;
 }
 
 .dot{
   width:10px;
   height:10px;
   border-radius:50%;
-  background:var(--gradient);
+  background:var(--gradient); /* biru + hijau */
   margin-top:8px;
   flex-shrink:0;
 }
@@ -145,11 +145,11 @@ body{
 /* STEPS */
 .step{
   border:1px solid var(--card-border);
-  border-radius:16px;
-  padding:15px 16px;
-  margin-bottom:14px;
+  border-radius:14px;
+  padding:14px 15px;
+  margin-bottom:12px;
   font-size:15px;
-  background:#ffffff;
+  background:#f8fafc;
 }
 </style>
 </head>
@@ -164,65 +164,62 @@ body{
 
     <h1>
       Renew Tanpa Pening.<br>
-      <span>Buat Dengan Yakin.</span>
+      <span>Buat Terus Dalam WhatsApp.</span>
     </h1>
 
     <p>
-      Kami bantu semak, banding dan cadangkan  
-      pilihan yang sesuai untuk keperluan anda.
+      Terus chat seperti biasa.<br>
+      Kami bantu semak, banding dan cadangkan yang sesuai.
     </p>
 
     <a href="https://wa.me/60179699926?text=Hi%2C%20RenewRoadtaxMurah.%0ASaya%20nak%20renew%20insurans."
        class="btn">
-       Terus WhatsApp Untuk Semak
+       Terus WhatsApp Kami
     </a>
 
     <div class="trust">
-      ✔ Digunakan pemandu Malaysia
+      ✔ Dipercayai pemandu Malaysia • ✔ Urusan jelas
     </div>
   </div>
 
   <!-- CONTENT -->
   <div class="card">
-    <h2>Kenapa Ramai Rasa Renew Insurans Itu Susah?</h2>
+    <h2>Kenapa Cara Ini Lebih Selesa</h2>
     <p>
-      Renew insurans sering terasa rumit kerana terlalu banyak istilah,
-      terlalu banyak pilihan, dan harga yang berbeza-beza.
+      Kebanyakan orang cuma nak faham pilihan yang ada
+      dan tahu harga yang masuk akal — tanpa isi borang panjang.
     </p>
     <p>
-      Ada yang ikut murah tanpa faham perlindungan,
-      ada pula yang takut tersalah buat keputusan.
+      WhatsApp bagi ruang untuk tanya,
+      faham satu-satu,
+      dan buat keputusan dengan tenang.
     </p>
   </div>
 
   <div class="card">
-    <h2>Apa Yang Kami Buat Berbeza</h2>
+    <h2>Apa Yang Kami Bantu</h2>
     <div class="list">
-      <div><span class="dot"></span>Kami fokus pada keperluan sebenar anda.</div>
-      <div><span class="dot"></span>Kami terangkan secara ringkas & jelas.</div>
-      <div><span class="dot"></span>Kami banding beberapa pilihan sebelum cadang.</div>
-      <div><span class="dot"></span>Tiada paksaan untuk terus setuju.</div>
+      <div><span class="dot"></span>Banding insurans ikut keperluan sebenar</div>
+      <div><span class="dot"></span>Terangkan ringkas, tak teknikal</div>
+      <div><span class="dot"></span>Cadang harga yang berbaloi</div>
+      <div><span class="dot"></span>Urus roadtax & insurans sekali</div>
     </div>
-    <p>
-      Matlamat kami ialah bantu anda buat keputusan
-      dengan lebih yakin dan tenang.
-    </p>
   </div>
 
   <div class="card">
     <h2>Bagaimana Proses Ini Berjalan</h2>
-    <div class="step">1️⃣ Hubungi kami melalui WhatsApp</div>
-    <div class="step">2️⃣ Kami tanya maklumat asas kenderaan</div>
-    <div class="step">3️⃣ Kami semak & banding pilihan insurans</div>
-    <div class="step">4️⃣ Anda pilih bila dah betul-betul yakin</div>
-    <div class="step">5️⃣ Roadtax & insurans kami uruskan</div>
+    <div class="step">1️⃣ Anda WhatsApp kami</div>
+    <div class="step">2️⃣ Kami tanya maklumat asas</div>
+    <div class="step">3️⃣ Kami semak & cadangkan</div>
+    <div class="step">4️⃣ Anda setuju bila dah yakin</div>
   </div>
 
   <div class="card">
-    <h2>Sedia Untuk Renew Dengan Lebih Yakin?</h2>
+    <h2>Sedia Untuk Renew Cara Paling Mudah?</h2>
     <p>
-      Tak perlu terus buat keputusan.  
-      Semak dulu, faham dulu, kemudian barulah setuju.
+      Tak perlu daftar.<br>
+      Tak perlu login.<br>
+      Terus chat.
     </p>
 
     <a href="https://wa.me/60179699926?text=Hi%2C%20RenewRoadtaxMurah.%0ASaya%20nak%20renew%20insurans."
@@ -230,8 +227,8 @@ body{
        WhatsApp Kami Sekarang
     </a>
 
-    <div class="trust" style="margin-top:16px;">
-      ✔ Urusan jelas • ✔ Tiada paksaan • ✔ Fokus Malaysia
+    <div class="trust" style="margin-top:14px;">
+      ✔ Cepat • ✔ Mesra • ✔ Tiada paksaan
     </div>
   </div>
 
