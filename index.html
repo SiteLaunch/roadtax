@@ -7,16 +7,20 @@
 
 <style>
 :root{
+  /* BACKGROUND (KEKAL) */
   --bg-top:#e8f1ff;
   --bg-bottom:#e9fbf2;
 
-  --card:#eef4ff;
-  --card-alt:#edfdf5;
-  --card-border:#dbeafe;
+  /* CARD – LEBIH JELAS (NO WHITE) */
+  --card:#dde9ff;        /* biru lembut, lebih gelap */
+  --card-alt:#d8f3e5;    /* hijau lembut, lebih gelap */
+  --card-border:#c7ddf7;
 
+  /* TEXT */
   --text:#0f172a;
   --muted:#475569;
 
+  /* ACCENT */
   --gradient:linear-gradient(135deg,#2563eb,#22c55e);
 }
 
@@ -39,7 +43,7 @@ body{
   padding:32px 16px 72px;
 }
 
-/* HERO */
+/* HERO (KEKAL) */
 .hero{
   text-align:center;
   padding:26px 20px 40px;
@@ -71,7 +75,7 @@ body{
   margin-bottom:24px;
 }
 
-/* BUTTON */
+/* BUTTON (KEKAL) */
 .btn{
   display:block;
   width:100%;
@@ -90,13 +94,14 @@ body{
   color:#1e40af;
 }
 
-/* CARD */
+/* CARD – FIX UTAMA */
 .card{
   background:var(--card);
   border:1px solid var(--card-border);
   border-radius:22px;
   padding:28px 22px;
   margin-bottom:24px;
+  box-shadow:0 14px 28px rgba(15,23,42,.12);
 }
 
 .card.alt{
@@ -136,7 +141,7 @@ body{
   margin-top:8px;
 }
 
-/* STEPS */
+/* STEPS – SELARI DENGAN CARD */
 .step{
   border:1px solid var(--card-border);
   border-radius:14px;
@@ -154,6 +159,7 @@ body{
   padding:30px 22px;
   text-align:center;
   margin-top:8px;
+  box-shadow:0 14px 28px rgba(15,23,42,.12);
 }
 
 .cta p{
@@ -224,7 +230,7 @@ body{
     <div class="step">4️⃣ Anda setuju bila dah yakin</div>
   </div>
 
-  <!-- CTA BAWAH -->
+  <!-- CTA -->
   <div class="cta">
     <p>
       Tak perlu buat keputusan sekarang.<br>
