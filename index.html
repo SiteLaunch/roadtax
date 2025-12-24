@@ -7,21 +7,16 @@
 
 <style>
 :root{
-  /* BACKGROUND – BIRU → HIJAU */
-  --bg-top:#e8f1ff;     /* soft blue (TRUST) */
-  --bg-bottom:#e9fbf2;  /* whatsapp green lembut */
+  --bg-top:#e8f1ff;
+  --bg-bottom:#e9fbf2;
 
-  /* CARD */
-  --card:#ffffff;
-  --card-border:#e5e7eb;
+  --card:#eef4ff;
+  --card-alt:#edfdf5;
+  --card-border:#dbeafe;
 
-  /* TEXT */
   --text:#0f172a;
   --muted:#475569;
 
-  /* ACCENT */
-  --blue:#2563eb;
-  --green:#22c55e;
   --gradient:linear-gradient(135deg,#2563eb,#22c55e);
 }
 
@@ -32,7 +27,6 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
   color:var(--text);
 
-  /* 🌤️ BACKGROUND BIRU + HIJAU (JELAS) */
   background:
     radial-gradient(900px 420px at 20% -10%, rgba(37,99,235,.18), transparent),
     radial-gradient(800px 380px at 85% 0%, rgba(34,197,94,.18), transparent),
@@ -45,7 +39,7 @@ body{
   padding:32px 16px 72px;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   text-align:center;
   padding:26px 20px 40px;
@@ -54,7 +48,7 @@ body{
 
 .hero small{
   font-size:13px;
-  color:#1d4ed8; /* BIRU JELAS */
+  color:#1d4ed8;
   font-weight:500;
 }
 
@@ -77,7 +71,7 @@ body{
   margin-bottom:24px;
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 .btn{
   display:block;
   width:100%;
@@ -88,23 +82,25 @@ body{
   font-weight:600;
   font-size:16px;
   border-radius:18px;
-  box-shadow:0 14px 30px rgba(37,99,235,.25);
 }
 
 .trust{
   margin-top:14px;
   font-size:13px;
-  color:#1e40af; /* biru lembut */
+  color:#1e40af;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 .card{
   background:var(--card);
   border:1px solid var(--card-border);
   border-radius:22px;
   padding:28px 22px;
   margin-bottom:24px;
-  box-shadow:0 18px 40px rgba(15,23,42,.08);
+}
+
+.card.alt{
+  background:var(--card-alt);
 }
 
 .card h2{
@@ -126,7 +122,6 @@ body{
 
 .list div{
   display:flex;
-  align-items:flex-start;
   gap:12px;
   margin-bottom:12px;
   font-size:15px;
@@ -137,9 +132,8 @@ body{
   width:10px;
   height:10px;
   border-radius:50%;
-  background:var(--gradient); /* biru + hijau */
+  background:var(--gradient);
   margin-top:8px;
-  flex-shrink:0;
 }
 
 /* STEPS */
@@ -149,7 +143,24 @@ body{
   padding:14px 15px;
   margin-bottom:12px;
   font-size:15px;
-  background:#f8fafc;
+  background:var(--card-alt);
+}
+
+/* CTA BAWAH */
+.cta{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:22px;
+  padding:30px 22px;
+  text-align:center;
+  margin-top:8px;
+}
+
+.cta p{
+  font-size:16px;
+  line-height:1.7;
+  color:#334155;
+  margin-bottom:18px;
 }
 </style>
 </head>
@@ -182,7 +193,6 @@ body{
     </div>
   </div>
 
-  <!-- CONTENT -->
   <div class="card">
     <h2>Kenapa Cara Ini Lebih Selesa</h2>
     <p>
@@ -196,7 +206,7 @@ body{
     </p>
   </div>
 
-  <div class="card">
+  <div class="card alt">
     <h2>Apa Yang Kami Bantu</h2>
     <div class="list">
       <div><span class="dot"></span>Banding insurans ikut keperluan sebenar</div>
@@ -214,12 +224,11 @@ body{
     <div class="step">4️⃣ Anda setuju bila dah yakin</div>
   </div>
 
-  <div class="card">
-    <h2>Sedia Untuk Renew Cara Paling Mudah?</h2>
+  <!-- CTA BAWAH -->
+  <div class="cta">
     <p>
-      Tak perlu daftar.<br>
-      Tak perlu login.<br>
-      Terus chat.
+      Tak perlu buat keputusan sekarang.<br>
+      Tanya dulu. Faham dulu.
     </p>
 
     <a href="https://wa.me/60179699926?text=Hi%2C%20RenewRoadtaxMurah.%0ASaya%20nak%20renew%20insurans."
@@ -228,7 +237,7 @@ body{
     </a>
 
     <div class="trust" style="margin-top:14px;">
-      ✔ Cepat • ✔ Mesra • ✔ Tiada paksaan
+      ✔ Tiada paksaan • ✔ Jawapan ringkas & jelas
     </div>
   </div>
 
