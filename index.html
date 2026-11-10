@@ -228,8 +228,8 @@ footer{background:#eaf3fc;border-color:#d9e7f3}
             <div><label class="field" for="engine">Kapasiti enjin (cc)</label>
               <input id="engine" name="engine" placeholder="Contoh 1300" inputmode="numeric" maxlength="5" pattern="[1-9][0-9]{0,4}" required></div>
           </div>
-          <label class="field" for="model">Model kenderaan</label>
-          <input id="model" name="model" placeholder="Contoh Perodua Myvi" maxlength="80" required>
+          <label class="field" for="model">Model &amp; spesifikasi kenderaan</label>
+          <input id="model" name="model" placeholder="Contoh Myvi X, H, Advance" maxlength="80" required>
           <button type="submit" class="primary">Teruskan <svg><use href="#arrow"/></svg></button>
           <p class="safe"><svg><use href="#lock"/></svg> Sebut harga percuma. Tiada bayaran untuk permintaan ini.</p>
         </div>
@@ -268,7 +268,7 @@ footer{background:#eaf3fc;border-color:#d9e7f3}
   <section class="wrap help-band"><div class="help-icon"><svg><use href="#chat"/></svg></div><div><span class="section-label">TAK PASTI NAK PILIH COVER APA?</span><h2>Tanya dulu. Kami bantu semak.</h2><p>Bincang 1st party, 3rd party, cover cermin dan banjir dengan kami.</p></div><a href="https://wa.me/60179699926?text=Hallo%2C%0ASaya%20nak%20tanya%20detail%20berkenaan%20insurans." target="_blank" rel="noopener noreferrer">Tanya di WhatsApp ↗</a></section><section id="cara" class="wrap content">
     <span class="section-label">CARA MOHON</span><h2>Tiga langkah untuk bermula</h2>
     <div class="cards">
-      <article><span>01</span><h3>Isi butiran kenderaan</h3><p>Pilih kereta atau motosikal. Masukkan nombor plat, poskod, model dan kapasiti enjin.</p></article>
+      <article><span>01</span><h3>Isi butiran kenderaan</h3><p>Pilih kereta atau motosikal. Masukkan nombor plat, poskod, model, spesifikasi dan kapasiti enjin.</p></article>
       <article><span>02</span><h3>Isi maklumat pemilik dan cover</h3><p>Masukkan nama dan nombor IC pemilik, kemudian pilih perlindungan yang anda mahu semak.</p></article>
       <article><span>03</span><h3>Kongsi ringkasan</h3><p>Klik Buka WhatsApp. Mesej quotation siap diisi untuk anda semak dan hantar.</p></article>
     </div>
@@ -313,7 +313,7 @@ function renderSummary() {
     ['Nama penuh pemilik', ownerName.value],
     ['Nombor IC pemilik', icDigits],
     ['Poskod lokasi kenderaan', postcode.value],
-    ['Model kenderaan & cc', model.value + ' / ' + engine.value + ' cc'],
+    ['Model & spesifikasi kenderaan / cc', model.value + ' / ' + engine.value + ' cc'],
     ['Perlindungan', coverage.value],
     ['Cover cermin', windscreen.value],
     ['Cover banjir', flood.value],
