@@ -1,253 +1,395 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ms">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renew Roadtax & Insurans Malaysia</title>
-
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f8ef">
+<meta name="description" content="Sediakan permintaan sebut harga insurans untuk kereta atau motosikal anda dalam tiga langkah.">
+<title>Renew Roadtax Murah — Insurans Kereta &amp; Motosikal</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMTIiIGZpbGw9IiMwNzU5ZGYiLz48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNhMWY4Y2IiIHN0cm9rZS13aWR0aD0iMi4xIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0yMCAzMHM4LTQgOC0xMHYtNmwtOC00LTggNHY2YzAgNiA4IDEwIDggMTBaIG0tNC0xMCAzIDMgNS02Ii8+PC9zdmc+Cg==" type="image/svg+xml">
 <style>
-:root{
-  /* BACKGROUND (KEKAL) */
-  --bg-top:#e8f1ff;
-  --bg-bottom:#e9fbf2;
+:root{color-scheme:light;--ink:#20291b;--muted:#535e4c;--lime:#d9fa75;--bg:#f7f8ef;--line:#e0e5d8;--white:#fff;--dark:#23301c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:22px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid #577315;outline-offset:3px}
+svg:not(.symbols){width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.symbols{position:absolute;width:0;height:0;overflow:hidden}
+.wrap{width:min(1152px,calc(100% - 80px));margin-inline:auto}
+.header{border-bottom:1px solid #e5e9dd;background:#fafbf5}
+.nav,.footer{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-size:23px;font-weight:850;letter-spacing:-.065em;line-height:1.05;white-space:nowrap}
+.brand span span{color:#4e672b}
+.brand small{display:block;margin-top:4px;font-size:8px;font-weight:800;letter-spacing:.12em;color:var(--muted)}
+nav{display:flex;align-items:center;gap:33px;font-weight:650;font-size:14px;color:var(--muted)}
+nav a:hover,.footer>a:last-child:hover{text-decoration:underline}
+.nav-cta,.primary,.secondary{display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid transparent;border-radius:12px;font-weight:780;line-height:1.25}
+.nav-cta{padding:11px 15px;background:var(--dark);color:white;font-size:13px}
+.nav-cta svg{width:17px;height:17px;color:var(--lime)}
+.hero{display:grid;grid-template-columns:1.16fr 1fr;gap:clamp(34px,5.5vw,80px);align-items:center;padding-block:52px 36px}
+.hero-copy{min-width:0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #dce5ce;background:#edf3df;border-radius:100px;padding:6px 11px;font-size:10px;font-weight:850;letter-spacing:.095em}
+.eyebrow i{height:7px;width:7px;background:#58762c;border-radius:50%}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(53px,6.6vw,94px);line-height:.97;letter-spacing:-.09em;margin-top:17px;font-weight:875}
+h1 span{color:#4a622c}
+.intro{color:var(--muted);max-width:450px;margin:19px 0 16px;font-size:16px;line-height:1.6}
+.vehicle-art{display:block;width:100%;height:auto;max-height:211px;object-fit:cover;object-position:center 52%;border-radius:23px}
+.quote{min-width:0;border:1px solid #e1e6da;border-radius:25px;padding:28px 30px;background:var(--white);box-shadow:0 24px 60px #35442413,0 5px 14px #3544240a}
+.quote-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.form-icon{display:grid;place-items:center;width:43px;height:43px;border-radius:13px;background:#eef5df;color:#3d5627}
+.step-badge,.section-label{font-size:11px;font-weight:850;letter-spacing:.09em;color:#4d662e}
+.step-badge{padding:6px 10px;background:#f2f6e9;border-radius:100px}
+.quote h2,.content h2{font-size:clamp(27px,3vw,36px);line-height:1.12;letter-spacing:-.055em;font-weight:850}
+.quote h2:focus{outline:none}
+.quote-description{color:var(--muted);font-size:14px;margin-top:5px}
+.progress{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:0;margin:20px 0}
+.progress li{border-top:3px solid #e9ede3;padding-top:9px;color:#5c6556;font-size:12px;font-weight:670;white-space:nowrap}
+.progress li[aria-current],.progress li.done{border-color:#658434;color:#344725}
+.progress li span{margin-right:3px}
+fieldset{padding:0;margin:0;border:0;min-width:0}
+.field,legend{font-size:13px;font-weight:770;display:block;margin:0 0 6px}
+.field:not(.roadtax){margin-top:13px}
+.field small{color:var(--muted);font-weight:500}
+.vehicle-options{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.vehicle-options label{position:relative;cursor:pointer;min-width:0}
+.vehicle-options input{position:absolute;width:1px;height:1px;opacity:0}
+.vehicle-options span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border:1px solid var(--line);border-radius:10px;font-size:14px;font-weight:720}
+.vehicle-options input:checked+span{background:#eef6dd;border-color:#819c58;color:#324921}
+.vehicle-options input:focus-visible+span{outline:3px solid #577315;outline-offset:2px}
+input:not([type=radio],[type=checkbox]),select,textarea{background:#fafbf7;border:1px solid #dce2d6;border-radius:10px;width:100%;min-width:0;min-height:43px;padding:9px 11px;font-size:14px}
+input::placeholder{color:#636d5d}
+input[type=checkbox]{width:17px;height:17px;accent-color:#4f672f;flex:none}
+.roadtax{display:flex;align-items:center;gap:7px;padding:10px 0}
+.primary{width:100%;min-height:47px;padding:10px 12px;background:var(--lime);margin-top:16px;font-size:14px;color:#20291b;text-align:center}
+.primary:hover{background:#caee5a}
+.primary svg,.footer>a:last-child svg{width:18px;height:18px}
+.secondary{padding:10px 13px;margin-top:16px;background:white;border-color:#dce2d6;font-size:14px}
+.secondary:hover{background:#f2f5ed}
+.actions{display:flex;gap:9px}
+.safe{display:flex;align-items:center;justify-content:center;gap:5px;color:var(--muted);font-size:11px;margin-top:10px}
+.safe svg{width:14px;height:14px}
+.summary{margin:0}
+.summary div{display:grid;grid-template-columns:1fr 1.2fr;gap:10px;padding:6px 0;border-bottom:1px solid #edf0e8;font-size:13px}
+.summary dt{color:var(--muted)}
+.summary dd{margin:0;font-weight:750;text-align:right;overflow-wrap:anywhere}
+.draft-note{font-size:12px;color:var(--muted);margin-top:9px}
+.highlights{display:grid;grid-template-columns:repeat(3,1fr);background:#eaf0df;border-radius:17px;padding:14px 4px}
+.highlights>div{display:flex;justify-content:center;align-items:center;gap:10px;padding:5px 10px}
+.highlights>div+div{border-left:1px solid #d8e0cb}
+.highlights svg{color:#4e672b}
+.highlights b,.highlights small{display:block}
+.highlights b{font-size:13px}.highlights small{color:var(--muted);font-size:12px}
+.content{padding-top:66px}
+.content h2{margin-top:6px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:21px}
+.cards article{padding:22px;background:white;border:1px solid var(--line);border-radius:15px}
+.cards article span{color:#4d662e;font-size:13px;font-weight:800}
+.cards h3{font-size:17px;margin:7px 0 4px;letter-spacing:-.02em}
+.cards p,details p{color:var(--muted);font-size:14px}
+.faq{display:grid;grid-template-columns:.75fr 1.25fr;gap:36px;margin-bottom:68px}
+details{border-top:1px solid #dce2d3}
+details:last-child{border-bottom:1px solid #dce2d3}
+details summary{position:relative;list-style:none;padding:15px 28px 15px 0;font-weight:750;font-size:15px;cursor:pointer}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";position:absolute;right:3px;top:11px;color:#4d662e;font-size:21px}
+details[open] summary::after{content:"−"}
+details p{padding-bottom:15px}
+footer{background:#edf1e5;border-top:1px solid var(--line)}
+.footer p{color:var(--muted);font-size:13px}
+.footer>a:last-child{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:750}
+@media(max-width:900px){.wrap{width:calc(100% - 48px)}.hero{gap:24px}.quote{padding:23px}.intro{font-size:15px}}
+@media(max-width:700px){.wrap{width:calc(100% - 34px)}.nav{min-height:65px;gap:9px}nav{display:none}.nav-cta{font-size:12px;padding:9px}.nav-cta svg{width:14px;height:14px}.hero{grid-template-columns:1fr;padding-top:28px;gap:20px}.hero h1{font-size:clamp(47px,9.5vw,66px);margin-top:11px}.hero h1 br:first-of-type{display:none}.hero h1 br:first-of-type::after{content:" "}.intro{margin:10px 0 12px}.vehicle-art{max-height:133px}.quote{padding:20px}.highlights{grid-template-columns:1fr;padding:6px 14px}.highlights>div{justify-content:flex-start;padding:8px}.highlights>div+div{border-left:0;border-top:1px solid #d8e0cb}.content{padding-top:43px}.cards,.faq{grid-template-columns:1fr;gap:10px}.faq{margin-bottom:43px}.footer{flex-wrap:wrap;gap:11px;padding-block:15px}.footer p{order:3;width:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-  /* CARD – LEBIH JELAS (NO WHITE) */
-  --card:#dde9ff;        /* biru lembut, lebih gelap */
-  --card-alt:#d8f3e5;    /* hijau lembut, lebih gelap */
-  --card-border:#c7ddf7;
+.field-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#whatsapp{background:var(--dark);color:white}
+#whatsapp:hover{background:#384a2e}
 
-  /* TEXT */
-  --text:#0f172a;
-  --muted:#475569;
+/* Renew Roadtax Murah brand */
+:root{--ink:#112e50;--muted:#50657e;--lime:#ffdd57;--bg:#f6faff;--line:#dce8f3;--dark:#0759df}
+body{background:radial-gradient(ellipse at 8% 18%,#ddf9fa 0,transparent 40%),#f6faff}
+.announcement{text-align:center;background:#0759df;color:white;padding:8px 12px;font-size:12px;letter-spacing:.015em}
+.announcement strong{color:#ffeb84}
+.header{background:#ffffffed;border-color:#e1edf7}
+.brand{font-size:18px;letter-spacing:-.035em;color:#0759df}
+.brand small{color:#187666;font-size:9px;letter-spacing:.12em}
+.nav-cta{background:#0759df;border-radius:100px}
+.nav-cta svg{color:white}
+.hero{padding-top:48px;gap:58px;align-items:start}
+.hero-copy{padding-top:14px}
+.eyebrow{background:#e0f7ef;color:#127555;border-color:#bbead9;font-size:10px}
+.eyebrow i{background:#11b987}
+h1{font-size:clamp(54px,5.6vw,78px);line-height:1.04;letter-spacing:-.065em}
+h1 span{color:#0759df;position:relative}
+.intro{max-width:470px;line-height:1.65;font-size:16px}
+.hero-actions{display:flex;align-items:flex-start;flex-direction:column;gap:10px;margin-bottom:20px}
+.hero-actions .primary{width:auto;margin-top:2px;background:#0759df;color:white;padding:16px 21px;border-radius:100px;box-shadow:0 9px 20px #0759df26}
+.hero-actions>span{font-size:12px;font-weight:650;color:#35665d;margin-left:8px}
+.art-stage{position:relative;transform:rotate(-2deg);margin:30px 0 16px}
+.vehicle-art{max-height:none;height:auto;border-radius:23px;box-shadow:0 15px 35px #164a6919}
+.art-tag{position:absolute;left:18px;top:-13px;background:#ffdd57;color:#183554;font-size:10px;font-weight:850;padding:8px 13px;border-radius:7px;transform:rotate(-3deg);z-index:1}
+.art-sticker{position:absolute;right:-8px;bottom:-10px;background:#fff;padding:12px 16px;border-radius:14px;box-shadow:0 8px 20px #163b6022;display:flex;align-items:center;gap:9px;font-size:12px;font-weight:750;transform:rotate(5deg)}
+.art-sticker svg{color:#08a97f;width:28px;height:28px}
+.quote{border:1px solid #cfdff1;border-radius:24px;box-shadow:0 20px 60px #164c8b17;overflow:hidden;padding:26px}
+.offer-label{background:linear-gradient(110deg,#0759df,#078da9);color:white;margin:-26px -26px 22px;padding:11px 26px;font-size:10px;font-weight:850;letter-spacing:.09em}
+.form-icon{background:#e7f0ff;color:#0759df}
+.step-badge{background:#e8f9f0;color:#147551}
+.quote h2{font-size:29px;letter-spacing:-.045em}
+.progress{gap:7px}
+.progress li{font-size:11px;color:#61738a;border-color:#e4edf5}
+.progress li[aria-current],.progress li.done{color:#0759df;border-color:#0759df}
+.vehicle-options span{min-height:58px;background:#fafcff;border-radius:13px}
+.vehicle-options input:checked+span{background:#eaf3ff;border:2px solid #0759df;color:#0759df}
+input:not([type=radio],[type=checkbox]),select,textarea{background:#f8fbff;border-color:#d8e5f1;font-size:16px}
+input::placeholder{color:#6b7e91;font-size:13px}
+input[type=checkbox]{accent-color:#0759df}
+.primary{background:#ffdd57;color:#15304e;border-radius:12px;min-height:49px}
+.primary:hover{background:#ffce2d}
+.highlights{background:white;border:1px solid #dae9f4;box-shadow:0 10px 30px #164c8b08}
+.highlights svg{color:#0877d9}
+.highlights>div+div{border-color:#deebf5}
+.section-label{color:#0875b9}
+.cards article{border-color:#dce9f5;border-radius:20px;padding:26px;transition:transform .2s,box-shadow .2s}
+.cards article:hover{transform:translateY(-4px);box-shadow:0 14px 35px #164c8b12}
+.cards article:nth-child(1){background:#e9f2ff}
+.cards article:nth-child(2){background:#e2f8f1}
+.cards article:nth-child(3){background:#fff6d3}
+.cards article span{display:grid;place-items:center;background:white;width:38px;height:38px;border-radius:12px;color:#0759df;margin-bottom:14px}
+.cards h3{font-size:18px}
+.help-band{margin-top:50px;display:flex;align-items:center;gap:22px;padding:28px;border-radius:23px;background:#123e79;color:white;position:relative;overflow:hidden}
+.help-band .section-label{color:#88f3cc}
+.help-band h2{font-size:26px;line-height:1.2;letter-spacing:-.035em;margin:6px 0}
+.help-band p{color:#d0e3ff;font-size:13px}
+.help-icon{background:#ffffff18;border-radius:18px;padding:17px}
+.help-icon svg{height:32px;width:32px;color:#8cf5d2}
+.help-band>a{margin-left:auto;background:#a4f3cf;color:#123e5b;border-radius:100px;padding:13px 19px;font-size:13px;font-weight:800;white-space:nowrap}
+details,details:last-child{border-color:#d9e7f3}
+details summary::after{color:#0759df}
+footer{background:#eaf3fc;border-color:#d9e7f3}
+#whatsapp{background:#087957;color:white}
+#whatsapp:hover{background:#056348}
+.mobile-cta{display:none}
+:focus-visible{outline-color:#0759df}
+@media(max-width:900px){.hero{gap:26px}.brand{font-size:16px}.help-band{flex-wrap:wrap}.help-band>a{margin-left:0}}
+@media(max-width:700px){body{padding-bottom:78px}.announcement{font-size:10px}.announcement>span{display:none}.brand{font-size:14px;gap:7px}.brand small{font-size:7px}.nav-cta{font-size:10px;padding:10px}.hero{padding-top:19px;gap:25px}.hero-copy{padding-top:0}.hero h1{font-size:clamp(44px,11vw,64px);line-height:1.06}.hero h1 br:first-of-type{display:initial}.hero .intro{font-size:14px}.hero-actions .primary{padding:13px 18px}.art-stage{margin:25px 4px 14px}.vehicle-art{max-height:none}.quote{padding:22px}.offer-label{margin:-22px -22px 19px;padding-inline:22px}.quote h2{font-size:28px}.progress li{font-size:10px}.field-pair{gap:8px}.field{font-size:12px}.highlights{grid-template-columns:1fr}.help-band{padding:22px;gap:15px}.help-band h2{font-size:24px}.help-icon{display:none}.help-band>a{width:100%;text-align:center}.mobile-cta{position:fixed;bottom:12px;left:17px;right:17px;display:flex;align-items:center;justify-content:center;gap:12px;background:#0759df;color:white;border:3px solid white;border-radius:100px;min-height:54px;font-size:14px;font-weight:800;box-shadow:0 8px 30px #0759df40;z-index:20}.safe{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.cards article{transition:none}}
 
-  /* ACCENT */
-  --gradient:linear-gradient(135deg,#2563eb,#22c55e);
-}
-
-*{box-sizing:border-box;}
-
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
-  color:var(--text);
-
-  background:
-    radial-gradient(900px 420px at 20% -10%, rgba(37,99,235,.18), transparent),
-    radial-gradient(800px 380px at 85% 0%, rgba(34,197,94,.18), transparent),
-    linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
-}
-
-.container{
-  max-width:420px;
-  margin:auto;
-  padding:32px 16px 72px;
-}
-
-/* HERO (KEKAL) */
-.hero{
-  text-align:center;
-  padding:26px 20px 40px;
-  margin-bottom:40px;
-}
-
-.hero small{
-  font-size:13px;
-  color:#1d4ed8;
-  font-weight:500;
-}
-
-.hero h1{
-  font-size:26px;
-  line-height:1.45;
-  margin:14px 0 16px;
-}
-
-.hero h1 span{
-  background:var(--gradient);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.hero p{
-  font-size:15px;
-  line-height:1.7;
-  color:#334155;
-  margin-bottom:24px;
-}
-
-/* BUTTON (KEKAL) */
-.btn{
-  display:block;
-  width:100%;
-  padding:16px;
-  background:var(--gradient);
-  color:#ffffff;
-  text-decoration:none;
-  font-weight:600;
-  font-size:16px;
-  border-radius:18px;
-}
-
-.trust{
-  margin-top:14px;
-  font-size:13px;
-  color:#1e40af;
-}
-
-/* CARD – FIX UTAMA */
-.card{
-  background:var(--card);
-  border:1px solid var(--card-border);
-  border-radius:22px;
-  padding:28px 22px;
-  margin-bottom:24px;
-  box-shadow:0 14px 28px rgba(15,23,42,.12);
-}
-
-.card.alt{
-  background:var(--card-alt);
-}
-
-.card h2{
-  font-size:20px;
-  margin-bottom:16px;
-}
-
-.card p{
-  font-size:15px;
-  line-height:1.85;
-  color:var(--muted);
-  margin-bottom:14px;
-}
-
-/* LIST */
-.list{
-  margin:16px 0 20px;
-}
-
-.list div{
-  display:flex;
-  gap:12px;
-  margin-bottom:12px;
-  font-size:15px;
-  line-height:1.7;
-}
-
-.dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:var(--gradient);
-  margin-top:8px;
-}
-
-/* STEPS – SELARI DENGAN CARD */
-.step{
-  border:1px solid var(--card-border);
-  border-radius:14px;
-  padding:14px 15px;
-  margin-bottom:12px;
-  font-size:15px;
-  background:var(--card-alt);
-}
-
-/* CTA BAWAH */
-.cta{
-  background:var(--card);
-  border:1px solid var(--card-border);
-  border-radius:22px;
-  padding:30px 22px;
-  text-align:center;
-  margin-top:8px;
-  box-shadow:0 14px 28px rgba(15,23,42,.12);
-}
-
-.cta p{
-  font-size:16px;
-  line-height:1.7;
-  color:#334155;
-  margin-bottom:18px;
-}
 </style>
+
 </head>
-
-<body>
-
-<div class="container">
-
-  <!-- HERO -->
-  <div class="hero">
-    <small>Renew Roadtax & Insurans Malaysia</small>
-
-    <h1>
-      Renew Tanpa Pening.<br>
-      <span>Buat Terus Dalam WhatsApp.</span>
-    </h1>
-
-    <p>
-      Terus chat seperti biasa.<br>
-      Kami bantu semak dan cadangkan yang sesuai.
-    </p>
-
-    <a href="https://wa.me/60179699926?text=Hi%2C%20RenewRoadtaxMurah.%0ASaya%20nak%20renew%20insurans."
-       class="btn">
-       Terus WhatsApp Kami
-    </a>
-
-    <div class="trust">
-      ✔ Dipercayai pemandu Malaysia • ✔ Urusan jelas
+<body><div class="announcement">Kereta atau motor? <strong>Minta quotation PERCUMA</strong> </div>
+<svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s7-3.5 7-10V5l-7-3-7 3v7c0 6.5 7 10 7 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="car" viewBox="0 0 24 24"><path d="m5 9 2-5h10l2 5M3 16v3m18-3v3M3 11l2-2h14l2 2v5H3zM7 12.5h1m8 0h1"/></symbol>
+<symbol id="bike" viewBox="0 0 24 24"><circle cx="5" cy="16" r="3"/><circle cx="19" cy="16" r="3"/><path d="M5 16l4-6h7m3 6-4-11h-3m-5 5h4l2 6h-3"/></symbol>
+<symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3m-4 5v2"/></symbol>
+<symbol id="chat" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-8.5 8 8 8 0 0 1-3.3-.8L4 20l1.2-4A8 8 0 1 1 20 11.5Z"/><path d="M8 11h8m-8 3h5"/></symbol>
+<symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+</svg>
+<header class="header">
+  <div class="wrap nav">
+    <a class="brand" href="#utama" aria-label="Renew Roadtax Murah, laman utama"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMTIiIGZpbGw9IiMwNzU5ZGYiLz48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNhMWY4Y2IiIHN0cm9rZS13aWR0aD0iMi4xIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0yMCAzMHM4LTQgOC0xMHYtNmwtOC00LTggNHY2YzAgNiA4IDEwIDggMTBaIG0tNC0xMCAzIDMgNS02Ii8+PC9zdmc+Cg==" alt="" width="38" height="38"><span>RENEW ROADTAX<small>MURAH • INSURANS MALAYSIA</small></span></a>
+    <nav aria-label="Navigasi utama"><a href="#cara">Cara Mohon</a><a href="#soalan">Soalan Lazim</a></nav>
+    <a class="nav-cta" href="#sebut-harga">Sebut Harga Percuma <svg><use href="#arrow"/></svg></a>
+  </div>
+</header>
+<main id="utama">
+  <div class="wrap hero">
+    <section class="hero-copy" aria-labelledby="headline">
+      <span class="eyebrow"><i></i> RENEW ROADTAX &amp; INSURANS MALAYSIA</span>
+      <h1 id="headline">Renew insurans.<br><span>Jalan terus!</span></h1>
+      <p class="intro">Urus kereta &amp; motosikal dengan lebih mudah. Isi borang, semak quotation dan bincang terus di WhatsApp.</p>
+      <div class="hero-actions"><a class="primary" href="#sebut-harga">Dapatkan Quotation Percuma <svg><use href="#arrow"/></svg></a><span>Kereta ✓ &nbsp; Motosikal ✓</span></div><div class="art-stage"><span class="art-tag">READY UNTUK JALAN LAGI?</span><img class="vehicle-art" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NTAgMjgwIiByb2xlPSJpbWciPgo8ZGVmcz4KIDxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4Mj0iMSIgeTI9IjEiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48c3RvcCBzdG9wLWNvbG9yPSIjZDNmNmZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNzNkOWViIi8+PC9saW5lYXJHcmFkaWVudD4KIDxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQiIHgyPSIwIiB5Mj0iMSIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPjxzdG9wIHN0b3AtY29sb3I9IiNmOWZjZmYiLz48c3RvcCBvZmZzZXQ9Ii41MSIgc3RvcC1jb2xvcj0iI2E1ZDZmZiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRkOTVkZiIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImdsYXNzIiB4Mj0iMSIgeTI9IjEiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48c3RvcCBzdG9wLWNvbG9yPSIjNzU5MTgzIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjYzYzMxIi8+PC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cGF0aCBmaWxsPSJ1cmwoI3NreSkiIGQ9Ik0wIDBoNjUwdjI4MEgweiIvPgo8Y2lyY2xlIGN4PSI1MDkiIGN5PSI2OCIgcj0iNDciIGZpbGw9IiNmZmYwYTUiIG9wYWNpdHk9Ii44OCIvPgo8ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmOWZjZTQiIG9wYWNpdHk9Ii42Ij48cGF0aCBkPSJNNDIwIDYwaDE4Mm0tMTc4IDloMTkzbS0yNTMtMzBoNzVtLTExMSAxMGg2NSIvPjxjaXJjbGUgY3g9IjUwOSIgY3k9IjY4IiByPSI1OCIvPjxjaXJjbGUgY3g9IjUwOSIgY3k9IjY4IiByPSI2OCIvPjwvZz4KPHBhdGggZmlsbD0iIzc1Y2JkYyIgZD0ibTAgMTU0IDgzLTUyIDUwIDI3IDc1LTYzIDM5IDQyIDE5LTE2IDQ1IDQ4IDU5LTM3IDg4IDQ5IDg0LTI4IDEwOCAzN3YxMTlIMHoiLz4KPHBhdGggZmlsbD0iIzIyYWNhZSIgZD0ibTAgMTY4IDYyLTI2IDY5IDkgNjAtMjQgNDAgMTMgNDQtMTcgNjEgMzQgNjUtMjAgODggMjcgODgtMjAgNzMgMTZ2MTIwSDB6Ii8+CjxwYXRoIGZpbGw9IiMyYzhiOTkiIGQ9Ik0wIDE4NGMxMDgtMzMgMTY3LTMyIDIzOC0xOSAxMzEgMjQgMTg4LTE1IDQxMi01djEyMEgweiIvPgo8cGF0aCBmaWxsPSIjMTY0YTY5IiBkPSJNMCAxOTljMTg1LTIyIDM0MC0yMyA2NTAtMjR2MTA1SDB6Ii8+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UzZWRiZCIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIuNiIgZD0iTTAgMjA5YzE4NS0yMiAzNDAtMjMgNjUwLTI0Ii8+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2MxZDI5YiIgc3Ryb2tlLWRhc2hhcnJheT0iNDMgMjMiIHN0cm9rZS13aWR0aD0iMyIgZD0iTTAgMjU4YzIwMC0zMSA0MzMtMzggNjUwLTQyIiBvcGFjaXR5PSIuNjUiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTggMSkiPgogPGVsbGlwc2UgY3g9IjE4NiIgY3k9IjIzNSIgcng9IjE4NiIgcnk9IjE0IiBmaWxsPSIjMTcyNjFlIiBvcGFjaXR5PSIuNzIiLz4KIDxwYXRoIGZpbGw9IiMyMDJjMjciIGQ9Ik0zMSAyMDFoMzE0djI1SDMxeiIvPgogPHBhdGggZmlsbD0idXJsKCNwYWludCkiIHN0cm9rZT0iIzUyNjk0NiIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTUgMjA1di0xNXEwLTIwIDI0LTI4bDU4LTE2IDM2LTMycTEyLTEwIDQwLTEyaDY2cTM0IDEgNTMgMjBsMzAgMjkgMzggMTFxMjMgOCAyNSAyOWwtMSAyMS0xNiAxMGgtNDNhMzQgMzQgMCAwIDAtNjggMEgxMTBhMzQgMzQgMCAwIDAtNjggMEgyOHEtMTMtNC0xMy0xN1oiLz4KIDxwYXRoIGZpbGw9InVybCgjZ2xhc3MpIiBzdHJva2U9IiM1MTY4NGUiIHN0cm9rZS13aWR0aD0iMiIgZD0ibTEwOSAxNDUgMzMtMjVxMTEtOCAzNC04aDU1cTI2IDAgNDAgMTVsMTkgMTl6bTE3NS0yNCAyNiAyNWgtMTF6Ii8+CiA8cGF0aCBzdHJva2U9IiNhZGNjOGMiIHN0cm9rZS13aWR0aD0iMyIgZD0ibTE5MCAxMTItNiAzNG02MC0zMyAxNCAzMyIvPgogPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzk5NDVhIiBzdHJva2Utd2lkdGg9IjIiIGQ9Im0xMDggMTUzIDYgNTNtNzAtNTItNSA1MW0xMTItNTItMTUgMzhNMTE1IDE5OWwxMzEtMm0tOTMtMzFoMTltNDkgMGgxOSIvPgogPHBhdGggZmlsbD0iI2U4ZjNiZiIgZD0ibTE4IDE4MiAzMy05IDE1IDItMTcgMTAtMzIgNHoiLz4KIDxwYXRoIGZpbGw9IiNmYWZjZGUiIGQ9Im0zNTUgMTY4IDIwIDggOCAxMi0yNC00LTE1LTEweiIvPgogPHBhdGggZmlsbD0iIzI3MzgyYyIgZD0ibTM0OCAxOTIgMzcgNS0zIDEyLTM4LTJ6Ii8+CiA8ZyBzdHJva2U9IiMyMjJlMjgiIHN0cm9rZS13aWR0aD0iNCI+PGNpcmNsZSBjeD0iNzYiIGN5PSIyMTkiIHI9IjI3IiBmaWxsPSIjMzE0MTM4Ii8+PGNpcmNsZSBjeD0iMjkxIiBjeT0iMjE5IiByPSIyNyIgZmlsbD0iIzMxNDEzOCIvPjxjaXJjbGUgY3g9Ijc2IiBjeT0iMjE5IiByPSIxNiIgZmlsbD0iIzk5YWM5NSIvPjxjaXJjbGUgY3g9IjI5MSIgY3k9IjIxOSIgcj0iMTYiIGZpbGw9IiM5OWFjOTUiLz48L2c+CiA8cGF0aCBzdHJva2U9IiM0MTU3NGIiIHN0cm9rZS13aWR0aD0iMyIgZD0iTTY3IDIxOWgxOG0tOS05djE4bTIwNi05aDE4bS05LTl2MTgiLz4KPC9nPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MjcgOTQpIj4KIDxlbGxpcHNlIGN4PSI5OCIgY3k9IjE0MiIgcng9Ijk2IiByeT0iMTAiIGZpbGw9IiMxODI3MWUiIG9wYWNpdHk9Ii43NiIvPgogPGcgZmlsbD0iIzJkM2UzNCIgc3Ryb2tlPSIjMWUyYTIzIiBzdHJva2Utd2lkdGg9IjQiPjxjaXJjbGUgY3g9IjMyIiBjeT0iMTIxIiByPSIyMyIvPjxjaXJjbGUgY3g9IjE1MSIgY3k9IjEyMSIgcj0iMjMiLz48L2c+CiA8ZyBmaWxsPSIjYjJjMWE2IiBzdHJva2U9IiM1MTY0NTciIHN0cm9rZS13aWR0aD0iMyI+PGNpcmNsZSBjeD0iMzIiIGN5PSIxMjEiIHI9IjEzIi8+PGNpcmNsZSBjeD0iMTUxIiBjeT0iMTIxIiByPSIxMyIvPjwvZz4KIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzlhYWI5NCIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Im0zMiAxMjEgMzMtMjYgMzYgMjdoLTY5bTExOS0xLTE5LTYyLTEyLTgtMTMgMSIvPgogPHBhdGggZmlsbD0iI2Q5ZWY5YiIgc3Ryb2tlPSIjNTY2ZjRiIiBzdHJva2Utd2lkdGg9IjIiIGQ9Im00NiA3MyA0MyA3IDE4LTEyIDIzIDMgMTIgMTYtMzAgMTgtMjUtNy0yMS0xMS0yOC03eiIvPgogPHBhdGggZmlsbD0iIzI2MzkyZSIgZD0ibTQzIDcxIDM4IDIgMTQgNi0xNyA3LTM0LTd6Ii8+CiA8cGF0aCBmaWxsPSIjNDI1YjQ3IiBkPSJtNzMgOTIgMjkgNiAxOSA1LTEyIDIwSDg4bC0yMS0xN3oiLz4KIDxwYXRoIGZpbGw9IiNmN2ZhZDciIGQ9Im0xMzcgNzcgMTIgMyAzIDktMTEgMXoiLz4KIDxwYXRoIGZpbGw9IiNkMGU3OGIiIGQ9Ik0xMzcgMTA0cTE3LTEyIDMxIDRsLTYgMnEtMTMtOC0yNSAxeiIvPgogPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzU4Zjc2IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTUwIDExMWgzMGwxMC0zIi8+CjwvZz4KPGcgZmlsbD0iI2VlZjVkNiI+PGNpcmNsZSBjeD0iNTIiIGN5PSI1MiIgcj0iMyIvPjxjaXJjbGUgY3g9IjY4IiBjeT0iNTIiIHI9IjMiLz48Y2lyY2xlIGN4PSI4NCIgY3k9IjUyIiByPSIzIi8+PC9nPgo8L3N2Zz4K" alt="" width="650" height="280"><span class="art-sticker"><svg><use href="#shield"/></svg> Anda pilih.<br>Kami bantu semak.</span></div>
+    </section>
+    <section class="quote" id="sebut-harga" aria-labelledby="quote-title">
+      <div class="offer-label">QUOTATION PERCUMA • MULA DI SINI</div><div class="quote-top"><div class="form-icon"><svg><use href="#shield"/></svg></div><span class="step-badge" id="step-badge">LANGKAH 1 / 3</span></div>
+      <h2 id="quote-title" tabindex="-1">Sebut harga percuma</h2>
+      <p id="step-description" class="quote-description">Mulakan dengan butiran asas kenderaan anda.</p>
+      <ol class="progress" aria-label="Kemajuan borang">
+        <li aria-current="step"><span>1</span> Kenderaan</li><li><span>2</span> Pemilik &amp; cover</li><li><span>3</span> Ringkasan</li>
+      </ol>
+      <form id="quote-form" autocomplete="off" novalidate>
+        <div id="step-1" class="step">
+          <fieldset><legend>Jenis kenderaan</legend><div class="vehicle-options">
+            <label><input type="radio" name="vehicle" value="Kereta" checked><span><svg><use href="#car"/></svg> Kereta</span></label>
+            <label><input type="radio" name="vehicle" value="Motosikal"><span><svg><use href="#bike"/></svg> Motosikal</span></label>
+          </div></fieldset>
+          <label class="field" for="plate">Nombor plat</label>
+          <input id="plate" name="plate" placeholder="Contoh BJPXXXX" autocomplete="off" autocapitalize="characters" maxlength="18" required>
+          <div class="field-pair">
+            <div><label class="field" for="postcode">Poskod lokasi kenderaan</label>
+              <input id="postcode" name="postcode" placeholder="Contoh 40000" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" required></div>
+            <div><label class="field" for="engine">Kapasiti enjin (cc)</label>
+              <input id="engine" name="engine" placeholder="Contoh 1300" inputmode="numeric" maxlength="5" pattern="[1-9][0-9]{0,4}" required></div>
+          </div>
+          <label class="field" for="model">Model kenderaan</label>
+          <input id="model" name="model" placeholder="Contoh Perodua Myvi" maxlength="80" required>
+          <button type="submit" class="primary">Teruskan <svg><use href="#arrow"/></svg></button>
+          <p class="safe"><svg><use href="#lock"/></svg> Sebut harga percuma. Tiada bayaran untuk permintaan ini.</p>
+        </div>
+        <div id="step-2" class="step" hidden>
+          <label class="field" for="owner-name">Nama penuh pemilik</label>
+          <input id="owner-name" name="ownerName" placeholder="Nama seperti dalam MyKad" maxlength="120" required>
+          <label class="field" for="owner-ic">Nombor IC pemilik</label>
+          <input id="owner-ic" name="ownerIc" type="text" placeholder="12 digit, dengan atau tanpa sengkang" inputmode="numeric" maxlength="14" pattern="[0-9]{12}|[0-9]{6}-[0-9]{2}-[0-9]{4}" required aria-describedby="ic-note">
+          <p id="ic-note" class="draft-note">Maklumat ini sulit dan hanya untuk saringan awal sebut harga.</p>
+          <label class="field" for="coverage">Pilihan perlindungan</label>
+          <select id="coverage" name="coverage"><option>Perlu cadangan perlindungan</option><option>1st party (Komprehensif)</option><option>3rd party (Pihak ketiga)</option><option>Pihak ketiga, kebakaran dan kecurian</option></select>
+          <div class="field-pair">
+            <div><label class="field" for="windscreen">Cover cermin</label>
+              <select id="windscreen" name="windscreen"><option>Belum pasti</option><option>Ya</option><option>Tidak</option></select></div>
+            <div><label class="field" for="flood">Cover banjir</label>
+              <select id="flood" name="flood"><option>Belum pasti</option><option>Ya</option><option>Tidak</option></select></div>
+          </div>
+          <label class="field" for="expiry">Tarikh polisi tamat <small>(jika tahu)</small></label>
+          <input id="expiry" name="expiry" type="date">
+          <label class="field roadtax"><input type="checkbox" id="roadtax" name="roadtax"> Saya juga mahu tanya tentang road tax.</label>
+          <div class="actions"><button type="button" class="secondary back">Kembali</button><button type="submit" class="primary">Semak Ringkasan <svg><use href="#arrow"/></svg></button></div>
+        </div>
+        <div id="step-3" class="step" hidden>
+          <dl id="summary" class="summary"></dl>
+          <p class="draft-note">Klik Buka WhatsApp untuk menyediakan mesej lengkap dengan butiran borang, termasuk nombor IC penuh. Semak mesej dan tekan Send apabila bersedia.</p>
+          <div class="actions"><button type="button" class="secondary back">Kembali</button><a id="whatsapp" class="primary" href="https://wa.me/60179699926" target="_blank" rel="noopener noreferrer">Buka WhatsApp <svg><use href="#arrow"/></svg></a></div>
+        </div>
+      </form>
+    </section>
+  </div>
+  <div class="wrap highlights" aria-label="Ciri permohonan">
+    <div><svg><use href="#car"/></svg><span><b>Dua jenis kenderaan</b><small>Kereta dan motosikal</small></span></div>
+    <div><svg><use href="#chat"/></svg><span><b>Semakan melalui WhatsApp</b><small>Bincang keperluan anda</small></span></div>
+    <div><svg><use href="#lock"/></svg><span><b>Sebut harga percuma</b><small>Semakan awal percuma</small></span></div>
+  </div>
+  <section class="wrap help-band"><div class="help-icon"><svg><use href="#chat"/></svg></div><div><span class="section-label">TAK PASTI NAK PILIH COVER APA?</span><h2>Tanya dulu. Kami bantu semak.</h2><p>Bincang 1st party, 3rd party, cover cermin dan banjir dengan kami.</p></div><a href="https://wa.me/60179699926" target="_blank" rel="noopener noreferrer">Tanya di WhatsApp ↗</a></section><section id="cara" class="wrap content">
+    <span class="section-label">CARA MOHON</span><h2>Tiga langkah untuk bermula</h2>
+    <div class="cards">
+      <article><span>01</span><h3>Isi butiran kenderaan</h3><p>Pilih kereta atau motosikal. Masukkan nombor plat, poskod, model dan kapasiti enjin.</p></article>
+      <article><span>02</span><h3>Isi maklumat pemilik dan cover</h3><p>Masukkan nama dan nombor IC pemilik, kemudian pilih perlindungan yang anda mahu semak.</p></article>
+      <article><span>03</span><h3>Kongsi ringkasan</h3><p>Klik Buka WhatsApp. Mesej quotation siap diisi untuk anda semak dan hantar.</p></article>
     </div>
-  </div>
-
-  <div class="card">
-    <h2>Kenapa Cara Ini Lebih Selesa</h2>
-    <p>
-      Kebanyakan orang cuma nak faham pilihan yang ada
-      dan tahu harga yang masuk akal — tanpa isi borang panjang.
-    </p>
-    <p>
-      WhatsApp bagi ruang untuk tanya,
-      faham satu-satu,
-      dan buat keputusan dengan tenang.
-    </p>
-  </div>
-
-  <div class="card alt">
-    <h2>Apa Yang Kami Bantu</h2>
-    <div class="list">
-      <div><span class="dot"></span>Semak insurans ikut keperluan sebenar</div>
-      <div><span class="dot"></span>Terangkan secara ringkas</div>
-      <div><span class="dot"></span>Cadang harga yang berbaloi</div>
-      <div><span class="dot"></span>Urus insurans & roadtax sekali</div>
+  </section>
+  <section id="soalan" class="wrap content faq">
+    <div><span class="section-label">SOALAN LAZIM</span><h2>Sebelum anda renew</h2></div>
+    <div>
+      <details><summary>Boleh minta sebut harga untuk motosikal?</summary><p>Boleh. Pilih Motosikal pada langkah pertama dan masukkan butiran kenderaan anda.</p></details>
+      <details><summary>Bila saya boleh tahu harga sebenar?</summary><p>Kami akan mengesahkan harga selepas menyemak butiran kenderaan dan pilihan perlindungan yang tersedia.</p></details>
+      <details><summary>Boleh tanya tentang road tax sekali?</summary><p>Boleh. Tandakan pilihan road tax pada langkah kedua supaya kami boleh menyemak keperluan anda.</p></details>
+      <details><summary>Apa jadi dengan butiran yang saya isi?</summary><p>Butiran digunakan untuk menyediakan permintaan quotation. Apabila anda klik Buka WhatsApp, semua butiran termasuk nombor IC penuh dimasukkan dalam mesej. Anda boleh semak mesej sebelum menghantarnya kepada kami.</p></details>
     </div>
-  </div>
+  </section>
+</main>
+<footer><div class="wrap footer"><a class="brand" href="#utama"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iMTIiIGZpbGw9IiMwNzU5ZGYiLz48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNhMWY4Y2IiIHN0cm9rZS13aWR0aD0iMi4xIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0yMCAzMHM4LTQgOC0xMHYtNmwtOC00LTggNHY2YzAgNiA4IDEwIDggMTBaIG0tNC0xMCAzIDMgNS02Ii8+PC9zdmc+Cg==" alt="" width="36" height="36"><span>RENEW ROADTAX<small>MURAH</small></span></a><p>Permintaan sebut harga insurans kenderaan.</p><a href="#sebut-harga">Ke Borang <svg><use href="#arrow"/></svg></a></div></footer><a class="mobile-cta" href="#sebut-harga">Minta Quotation Percuma <svg><use href="#arrow"/></svg></a>
+<script>
+'use strict';
 
-  <div class="card">
-    <h2>Bagaimana Proses Ini Berjalan</h2>
-    <div class="step">1️⃣ Anda WhatsApp kami</div>
-    <div class="step">2️⃣ Kami tanya maklumat asas</div>
-    <div class="step">3️⃣ Kami semak & cadangkan</div>
-    <div class="step">4️⃣ Anda setuju bila dah yakin</div>
-  </div>
+const form = document.querySelector('#quote-form');
+const { plate, model, ownerName } = form.elements;
+const textFields = [model, ownerName];
+const heading = document.querySelector('#quote-title');
+const progress = [...document.querySelectorAll('.progress li')];
+const summary = document.querySelector('#summary');
+const whatsapp = document.querySelector('#whatsapp');
+const titles = ['Sebut harga percuma', 'Maklumat pemilik & cover', 'Semak permintaan anda'];
+const descriptions = [
+  'Mulakan dengan butiran asas kenderaan anda.',
+  'Isi butiran pemilik dan pilih perlindungan untuk semakan kami.',
+  'Pastikan butiran anda betul sebelum berkongsi.'
+];
 
-  <!-- CTA -->
-  <div class="cta">
-    <p>
-      Tak perlu buat keputusan sekarang.<br>
-      Tanya dulu. Faham dulu.
-    </p>
+let step = 0;
 
-    <a href="https://wa.me/60179699926?text=Hi%2C%20RenewRoadtaxMurah.%0ASaya%20nak%20renew%20insurans."
-       class="btn">
-       WhatsApp Kami Sekarang
-    </a>
+function renderSummary() {
+  const { vehicle, postcode, engine, ownerIc, coverage, windscreen, flood, expiry, roadtax } = form.elements;
+  const icDigits = ownerIc.value.replaceAll('-', '');
+  const expiryText = expiry.value ? expiry.value.split('-').reverse().join('/') : 'Belum pasti';
+  const fields = [
+    ['Kenderaan', vehicle.value],
+    ['Nombor plat', plate.value],
+    ['Nama penuh pemilik', ownerName.value],
+    ['Nombor IC pemilik', icDigits],
+    ['Poskod lokasi kenderaan', postcode.value],
+    ['Model kenderaan & cc', model.value + ' / ' + engine.value + ' cc'],
+    ['Perlindungan', coverage.value],
+    ['Cover cermin', windscreen.value],
+    ['Cover banjir', flood.value],
+    ['Polisi tamat', expiryText],
+    ['Semakan road tax', roadtax.checked ? 'Ya' : 'Tidak']
+  ];
+  summary.replaceChildren();
+  for (const [label, value] of fields) {
+    const row = document.createElement('div');
+    const term = document.createElement('dt');
+    const detail = document.createElement('dd');
+    term.textContent = label;
+    detail.textContent = label === 'Nombor IC pemilik' ? '••••••••' + icDigits.slice(-4) : value;
+    row.append(term, detail);
+    summary.append(row);
+  }
+  const draft = ['Salam, saya ingin minta quotation insurans kenderaan secara PERCUMA.', '', ...fields.map(([label, value]) => '*' + label + ':* ' + value), '', 'Maklumat ini sulit dan hanya untuk saringan awal quotation.'].join('\n');
+  whatsapp.href = 'https://wa.me/60179699926?text=' + encodeURIComponent(draft);
 
-    <div class="trust" style="margin-top:14px;">
-      ✔ Tiada paksaan • ✔ Jawapan ringkas & jelas
-    </div>
-  </div>
+}
 
-</div>
+function showStep(index) {
+  step = index;
+  if (index === 2) renderSummary();
+  for (const [position, item] of progress.entries()) {
+    document.querySelector('#step-' + (position + 1)).hidden = position !== index;
+    item.classList.toggle('done', position < index);
+    if (position === index) item.setAttribute('aria-current', 'step');
+    else item.removeAttribute('aria-current');
+  }
+  document.querySelector('#step-badge').textContent = 'LANGKAH ' + (index + 1) + ' / 3';
+  heading.textContent = titles[index];
+  document.querySelector('#step-description').textContent = descriptions[index];
+  heading.focus({ preventScroll: true });
+  if (heading.getBoundingClientRect().top < 80 || heading.getBoundingClientRect().bottom > window.innerHeight) {
+    document.querySelector('#sebut-harga').scrollIntoView({ block: 'start' });
+  }
+}
 
+plate.addEventListener('input', () => plate.setCustomValidity(''));
+for (const field of textFields) {
+  field.addEventListener('input', () => field.setCustomValidity(''));
+}
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const controls = document.querySelector('#step-' + (step + 1)).querySelectorAll('input, select');
+  for (const control of controls) {
+    if (!control.reportValidity()) return;
+  }
+  if (step === 0) {
+    const normalized = plate.value.trim().toUpperCase().replace(/\s+/g, ' ');
+    if (!/^(?=.*[A-Z])(?=.*\d)[A-Z0-9 -]+$/.test(normalized)) {
+      plate.setCustomValidity('Masukkan nombor plat yang mengandungi huruf dan angka.');
+      plate.reportValidity();
+      return;
+    }
+    plate.value = normalized;
+  }
+  const textField = textFields[step];
+  if (textField) {
+    textField.value = textField.value.trim();
+    if (!textField.value) {
+      textField.setCustomValidity('Sila isi ruangan ini.');
+      textField.reportValidity();
+      return;
+    }
+  }
+  if (step < 2) showStep(step + 1);
+});
+
+for (const button of document.querySelectorAll('.back')) {
+  button.addEventListener('click', () => showStep(step - 1));
+}
+
+</script>
 </body>
 </html>
